@@ -1,0 +1,278 @@
+﻿@model IEnumerable<ConestogaConnect.Models.Accomodation>
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Accomodations";
+}
+
+
+<div class="body-content">
+
+    <h2>Accomodations</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
+    </p>
+    <fieldset>
+        <legend>Search</legend>
+        @using (Html.BeginForm("Index", "Accomodations", FormMethod.Get))
+        {
+            <div class="row">
+                <div class="col-xs-12 col-md-3">
+                    <div class="col-sm-4">Number of rooms</div>
+                    <div class="col-sm-8">@Html.TextBox("rooms", null, new { @class = "form-control" }) </div>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <div class="col-sm-4">Rent</div>
+                    <div class="col-sm-8">@Html.TextBox("rent", null, new { @class = "form-control" })</div>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <div class="col-sm-4">Facilities</div>
+                    <div class="col-sm-8">@Html.TextBox("facilities", null, new { @class = "form-control" })</div>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <div class="col-sm-4">Floors </div>
+                    <div class="col-sm-8">@Html.TextBox("floors", null, new { @class = "form-control" })</div>
+                </div>
+            </div>
+            <br />
+
+            <div class="row">
+                <div class="col-xs-12 col-md-3">
+                    <div class="col-sm-4">Posted Date From</div>
+                    <div class="col-sm-8">
+                        @Html.TextBox("pdfrom", null, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <div class="col-sm-4">Posted Date To</div>
+                    <div class="col-sm-8">@Html.TextBox("pdto", null, new { @class = "form-control", @readonly = "readonly" })</div>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <div class="col-sm-4">Updated From</div>
+                    <div class="col-sm-8">@Html.TextBox("ufrom", null, new { @class = "form-control", @readonly = "readonly" })</div>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <div class="col-sm-4">Updated To</div>
+                    <div class="col-sm-8">@Html.TextBox("uto", null, new { @class = "form-control", @readonly = "readonly" })</div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-xs-12 col-md-3">
+                    <div class="col-sm-6">@Html.CheckBox("petfriendly") Pet Friendly</div>
+                    <div class="col-sm-6">@Html.CheckBox("parking") Parking</div>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <div class="col-sm-4">@Html.CheckBox("furnished") Furnished</div>
+
+                </div>
+
+                <div class="col-xs-12 col-md-3">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-6"><input type="submit" value="Search" class="btn btn-default" /></div>
+
+                </div>
+            </div>
+        }
+    </fieldset>
+
+</div>
+ <hr />
+
+
+<section class="postSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2" ?>
+                <div class="postLeftBar">
+                    <h4 class="name"><a href="#">Sandeep Kaur</a></h4>
+                    <ul>
+                        <li>
+                            <a href="#">Accomodation</a>
+                        </li>
+                        <li>
+                            <a href="#">Types</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Find Books</a>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-sm-7">
+                <div class="postInner">
+                    @foreach (var item in Model)
+                    {
+                        <div class="postBox">
+                            <div class="postHeader clearfix">
+                                <div class="postWriter pull-left">
+                                    <img src="images/profile.jpg" alt="" width="40">
+                                    <span class="postName"> Sandeep Dhaliwal</span>
+                                </div>
+                                <div class="pull-right datePost">
+                                    <span>@string.Format("{0:MMM dd, yyyy HH:mm tt}", item.Posted_Date)</span>
+                                </div>
+                            </div>
+
+
+                            <div class="postDetail">
+                                <p>
+                                    @if (item.Number_of_Rooms != null)
+                                    {
+                                        @Html.Raw("Number of Rooms : ")
+                                        @Html.DisplayFor(modelItem => item.Number_of_Rooms)
+                                    }
+                                </p>
+
+                                <p>
+                                    @if (item.Rent != null)
+                                    {
+                                        @Html.Raw("Rent : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.Rent) </strong>
+                                    }
+                                </p>
+
+                                <p>
+                                    @if (item.Facilities != null)
+                                    {
+                                        @Html.Raw("Facilities : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.Facilities) </strong>
+                                    }
+                                </p>
+
+                                <p>
+                                @if (item.Parking == true)
+                                {
+                                    @Html.Raw("Parking : ")
+                                    <strong>Yes</strong>
+                                }
+                                @if (item.Parking == false)
+                                {
+                                    @Html.Raw("Parking : ")
+                                    <strong>No</strong>
+                                }
+                                </p>
+
+
+                                <p>
+                                    @if (item.Floor != null)
+                                    {
+                                        @Html.Raw("Floor : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.Floor) </strong>
+                                    }
+                                </p>
+
+                                <p>
+                                @if (item.Furnished == true)
+                                {
+                                    @Html.Raw("Furnished : ")
+                                    <strong>Yes</strong>
+                                }
+                                </p>
+
+                                <p>
+                                @if (item.Furnished == false)
+                                {
+                                    @Html.Raw("Furnished : ")
+                                    <strong>No</strong>
+                                }
+                                </p>
+
+                                <p>
+                                    @if (User.Identity.GetUserId() == item.UserId)
+                                    {
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                                        @Html.Raw(" | ")
+                                    }
+
+                                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                                    @if (User.Identity.GetUserId() == item.UserId)
+                                    {
+                                        @Html.Raw(" | ")
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    }
+
+
+                                </p>
+
+
+
+
+                            </div>
+
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+
+
+            <div class="col-sm-3">
+                <div class="newsFeed">
+                    <h4>News</h4>
+                    @{Html.RenderAction("_NewsFeedPartial", "NewsFeeds");}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<link href="~/Content/datepicker/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/datepicker/jquery-ui.structure.css" rel="stylesheet" />
+<link href="~/Content/datepicker/jquery-ui.theme.css" rel="stylesheet" />
+<script src="~/Content/datepicker/jquery-ui.js"></script>
+
+<script type="text/javascript">
+    var dateFormat = "dd/mm/yy";
+    $(document).ready(function () {
+        var pdfrom = $("#pdfrom").datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            dateFormat: dateFormat,
+            numberOfMonths: 1
+        }).on("change", function () {
+            pdto.datepicker("option", "minDate", getDate(this));
+        }),
+            pdto = $("#pdto").datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                dateFormat: dateFormat,
+                numberOfMonths: 1
+            }).on("change", function () {
+                pdfrom.datepicker("option", "maxDate", getDate(this));
+            });
+
+        var ufrom = $("#ufrom").datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            dateFormat: dateFormat,
+            numberOfMonths: 1
+        }).on("change", function () {
+            uto.datepicker("option", "minDate", getDate(this));
+        }),
+            uto = $("#uto").datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                dateFormat: dateFormat,
+                numberOfMonths: 1
+            }).on("change", function () {
+                ufrom.datepicker("option", "maxDate", getDate(this));
+            });
+    });
+
+    function getDate(element) {
+        var date;
+        try {
+            date = $.datepicker.parseDate(dateFormat, element.value);
+        } catch (error) {
+            date = null;
+        }
+        return date;
+    }
+</script>

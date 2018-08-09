@@ -1,0 +1,1332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6F38F79D-C2BF-45B0-B0AF-83A9C2C70C85}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConestogaConnect</RootNamespace>
+    <AssemblyName>ConestogaConnect</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Carbon.Data.Protection, Version=0.19.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Carbon.Data.Protection.0.19.1\lib\netstandard2.0\Carbon.Data.Protection.dll</HintPath>
+    </Reference>
+    <Reference Include="Carbon.Json, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Carbon.Json.1.7.0\lib\netstandard2.0\Carbon.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Carbon.Packaging, Version=1.27.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Carbon.Packaging.1.27.2\lib\netstandard2.0\Carbon.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Carbon.Storage, Version=1.15.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Carbon.Storage.1.15.1\lib\netstandard2.0\Carbon.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Carbon.VersionControl, Version=1.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Carbon.VersionControl.1.8.1\lib\netstandard2.0\Carbon.VersionControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Carbon.Versioning, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Carbon.Versioning.1.5.0\lib\netstandard2.0\Carbon.Versioning.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GitHub, Version=1.12.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GitHub.1.12.1\lib\netstandard2.0\GitHub.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.3.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.3.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGrid, Version=9.8.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.9.9.0\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.1\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio, Version=5.14.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.5.14.0\lib\net451\Twilio.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccomodationsController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActivitiesController.cs" />
+    <Compile Include="Controllers\AddDiscussionsController.cs" />
+    <Compile Include="Controllers\AdministrationController.cs" />
+    <Compile Include="Controllers\AspNetUsersController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\DiscussionController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobPostingsController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MeetingsController.cs" />
+    <Compile Include="Controllers\NewsFeedsController.cs" />
+    <Compile Include="Controllers\TutorsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805292127118_InitialCreate.cs" />
+    <Compile Include="Migrations\201805292127118_InitialCreate.Designer.cs">
+      <DependentUpon>201805292127118_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806022136344_InitialCreate1.cs" />
+    <Compile Include="Migrations\201806022136344_InitialCreate1.Designer.cs">
+      <DependentUpon>201806022136344_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806050030427_InitialCreate2.cs" />
+    <Compile Include="Migrations\201806050030427_InitialCreate2.Designer.cs">
+      <DependentUpon>201806050030427_InitialCreate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806051856201_InitialCreate3.cs" />
+    <Compile Include="Migrations\201806051856201_InitialCreate3.Designer.cs">
+      <DependentUpon>201806051856201_InitialCreate3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806111839207_InitialCreate4.cs" />
+    <Compile Include="Migrations\201806111839207_InitialCreate4.Designer.cs">
+      <DependentUpon>201806111839207_InitialCreate4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806121904239_InitialCreate5.cs" />
+    <Compile Include="Migrations\201806121904239_InitialCreate5.Designer.cs">
+      <DependentUpon>201806121904239_InitialCreate5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806122031094_InitialCreate6.cs" />
+    <Compile Include="Migrations\201806122031094_InitialCreate6.Designer.cs">
+      <DependentUpon>201806122031094_InitialCreate6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Accomodation.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccomodationImage.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccomodationViewModel.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Activity.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ActivityInterest.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ActivityType.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ActivityViewModel.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserActivation.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserRole.cs">
+      <DependentUpon>AspNetUserRoles.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserRoles.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AspNetUserRoles.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserRoles.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AspNetUserRoles.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserRoles.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AspNetUserRoles.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Book.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConestogaConnectModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConestogaConnectModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConestogaConnectModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConestogaConnectModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConestogaConnectModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Discussion.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DiscussionComment.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmailFormModel.cs" />
+    <Compile Include="Models\EmailViewModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\JobPosting.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Meeting.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MeetingInterest.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MeetingsStatu.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MeetingViewModel.cs" />
+    <Compile Include="Models\NewsFeed.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Program.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SearchViewModel.cs" />
+    <Compile Include="Models\SubComment.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tutor.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserSetting.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserUISetting.cs">
+      <DependentUpon>ConestogaConnectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Views\ViewModels\PostsVM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\ConestogaConnect.dll" />
+    <Content Include="bin\ConestogaConnect.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.xml" />
+    <Content Include="bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.xml" />
+    <Content Include="bin\Microsoft.AI.Web.dll" />
+    <Content Include="bin\Microsoft.AI.Web.xml" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.xml" />
+    <Content Include="bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="bin\Microsoft.ApplicationInsights.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.xml" />
+    <Content Include="bin\Microsoft.Owin.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.xml" />
+    <Content Include="bin\Microsoft.Owin.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\Owin.dll" />
+    <Content Include="bin\RestSharp.dll" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Console.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.Process.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.DriveInfo.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Security.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.Security.Claims.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\roslyn\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.Threading.Thread.dll" />
+    <Content Include="bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\SendGrid.dll" />
+    <Content Include="bin\SendGrid.pdb" />
+    <Content Include="bin\SendGrid.xml" />
+    <Content Include="bin\System.IdentityModel.Tokens.Jwt.dll" />
+    <Content Include="bin\System.IdentityModel.Tokens.Jwt.xml" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\Twilio.dll" />
+    <Content Include="bin\Twilio.xml" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datepicker\AUTHORS.txt" />
+    <Content Include="Content\datepicker\external\jquery\jquery.js" />
+    <Content Include="Content\datepicker\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\datepicker\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\datepicker\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\datepicker\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\datepicker\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\datepicker\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\datepicker\index.html" />
+    <Content Include="Content\datepicker\jquery-ui.css" />
+    <Content Include="Content\datepicker\jquery-ui.js" />
+    <Content Include="Content\datepicker\jquery-ui.min.css" />
+    <Content Include="Content\datepicker\jquery-ui.min.js" />
+    <Content Include="Content\datepicker\jquery-ui.structure.css" />
+    <Content Include="Content\datepicker\jquery-ui.structure.min.css" />
+    <Content Include="Content\datepicker\jquery-ui.theme.css" />
+    <Content Include="Content\datepicker\jquery-ui.theme.min.css" />
+    <Content Include="Content\datepicker\LICENSE.txt" />
+    <Content Include="Content\datetimepicker\content\Content\jquery.datetimepicker.css" />
+    <Content Include="Content\datetimepicker\content\Scripts\jquery.datetimepicker.js" />
+    <Content Include="Content\Images\88-256.png" />
+    <Content Include="Content\Images\Acc.jpg" />
+    <Content Include="Content\Images\Acccover.jpg" />
+    <Content Include="Content\Images\accomdation.jpg" />
+    <Content Include="Content\Images\accomodation.jpg" />
+    <Content Include="Content\Images\accomodation2.JPG" />
+    <Content Include="Content\Images\actcover.jpg" />
+    <Content Include="Content\Images\activities.jpg" />
+    <Content Include="Content\Images\addbutton.png" />
+    <Content Include="Content\Images\arrow-left.png" />
+    <Content Include="Content\Images\arrow-right.png" />
+    <Content Include="Content\Images\Book.jpg" />
+    <Content Include="Content\Images\BookCover.jpg" />
+    <Content Include="Content\Images\books1.png" />
+    <Content Include="Content\Images\books_nice.jpg" />
+    <Content Include="Content\Images\Discussion.jpg" />
+    <Content Include="Content\Images\discussion1.jpg" />
+    <Content Include="Content\Images\discussion2.jpg" />
+    <Content Include="Content\Images\dp.jpg" />
+    <Content Include="Content\Images\ffriend.jpg" />
+    <Content Include="Content\Images\ffriendcover.jpg" />
+    <Content Include="Content\Images\friends.jpg" />
+    <Content Include="Content\Images\headerBg.jpg" />
+    <Content Include="Content\Images\job.jpg" />
+    <Content Include="Content\Images\jobcover.jpg" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\matching.jpg" />
+    <Content Include="Content\Images\meeting.jpg" />
+    <Content Include="Content\Images\meeting1.jpg" />
+    <Content Include="Content\Images\Meetings.jpg" />
+    <Content Include="Content\Images\slider-1.jpg" />
+    <Content Include="Content\Images\slider-2.jpg" />
+    <Content Include="Content\Images\srch-icon.png" />
+    <Content Include="Content\Images\textbooks-reuse.jpg" />
+    <Content Include="Content\Images\tutor-student.jpg" />
+    <Content Include="Content\Images\user.png" />
+    <Content Include="Content\multiselect\multiple-select.css" />
+    <Content Include="Content\multiselect\multiple-select.js" />
+    <Content Include="Content\multiselect\multiple-select.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\AspNetUserRoles.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AspNetUserRoles.edmx</DependentUpon>
+      <LastGenOutput>AspNetUserRoles.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AspNetUserRoles.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AspNetUserRoles.edmx</DependentUpon>
+      <LastGenOutput>AspNetUserRoles.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ConestogaConnectModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ConestogaConnectModel.edmx</DependentUpon>
+      <LastGenOutput>ConestogaConnectModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ConestogaConnectModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ConestogaConnectModel.edmx</DependentUpon>
+      <LastGenOutput>ConestogaConnectModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="obj\Debug\ConestogaConnect.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\ConestogaConnect.dll" />
+    <Content Include="obj\Debug\ConestogaConnect.pdb" />
+    <Content Include="obj\Debug\TempPE\Models.AccomodationModel.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.AccomodationModel.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.AccomodationModel.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.ActivitiesModel.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.ActivitiesModel.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.ActivitiesModel.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.DiscussionsModel.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.DiscussionsModel.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.DiscussionsModel.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.JobPostingModel.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.JobPostingModel.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.JobPostingModel.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.UserRoleModel.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.UserRoleModel.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.UserRoleModel.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.UserRolesModel.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.UserRolesModel.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.UserRolesModel.Designer.cs.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Antlr3.Runtime.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Antlr3.Runtime.pdb" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\ConestogaConnect.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\ConestogaConnect.pdb" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\EntityFramework.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\EntityFramework.SqlServer.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.AI.Web.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.Owin.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.Owin.Security.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.Owin.Security.Google.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Newtonsoft.Json.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Owin.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\SendGrid.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\SendGrid.pdb" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\System.Web.Helpers.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\System.Web.Mvc.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\System.Web.Optimization.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\System.Web.Razor.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\System.Web.WebPages.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\WebGrease.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Content\bootstrap.css" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Content\bootstrap.min.css" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Content\Images\Acc.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Content\Images\Acccover.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Content\Images\actcover.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Content\Images\addbutton.png" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Content\Images\Book.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Content\Images\dp.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Content\Images\ffriend.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Content\Images\ffriendcover.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Content\Images\jobcover.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Content\Images\user.png" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Content\Site.css" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\favicon.ico" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Global.asax" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Scripts\bootstrap.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Scripts\bootstrap.min.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Scripts\jquery-1.10.2.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Scripts\jquery-1.10.2.min.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Scripts\jquery.validate.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Scripts\jquery.validate.min.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Scripts\modernizr-2.6.2.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Scripts\respond.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Scripts\respond.min.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Antlr3.Runtime.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Antlr3.Runtime.pdb" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\App_global.asax.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\ConestogaConnect.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\ConestogaConnect.pdb" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\EntityFramework.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\EntityFramework.SqlServer.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.AI.Web.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.Owin.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.Owin.Security.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.Owin.Security.Google.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Newtonsoft.Json.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\Owin.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\SendGrid.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\SendGrid.pdb" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\System.Web.Helpers.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\System.Web.Mvc.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\System.Web.Optimization.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\System.Web.Razor.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\System.Web.WebPages.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\WebGrease.dll" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Content\bootstrap.css" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Content\bootstrap.min.css" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Content\Images\Acc.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Content\Images\Acccover.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Content\Images\actcover.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Content\Images\addbutton.png" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Content\Images\Book.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Content\Images\dp.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Content\Images\ffriend.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Content\Images\ffriendcover.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Content\Images\jobcover.jpg" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Content\Images\user.png" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Content\Site.css" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\favicon.ico" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Scripts\bootstrap.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Scripts\bootstrap.min.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Scripts\jquery-1.10.2.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Scripts\jquery-1.10.2.min.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Scripts\jquery.validate.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Scripts\jquery.validate.min.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Scripts\modernizr-2.6.2.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Scripts\respond.js" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Scripts\respond.min.js" />
+    <Content Include="obj\Release\ConestogaConnect.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\ConestogaConnect.dll" />
+    <Content Include="obj\Release\ConestogaConnect.pdb" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Antlr3.Runtime.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Antlr3.Runtime.pdb" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\App_global.asax.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\ConestogaConnect.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\ConestogaConnect.pdb" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\EntityFramework.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\EntityFramework.SqlServer.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AI.Web.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.Owin.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.Owin.Security.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.Owin.Security.Google.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Newtonsoft.Json.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Owin.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\SendGrid.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\SendGrid.pdb" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Helpers.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Mvc.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Optimization.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Razor.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.WebPages.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\WebGrease.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\bootstrap.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\bootstrap.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\Images\Acc.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\Images\Acccover.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\Images\actcover.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\Images\addbutton.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\Images\Book.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\Images\dp.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\Images\ffriend.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\Images\ffriendcover.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\Images\jobcover.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\Images\user.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\Site.css" />
+    <Content Include="obj\Release\Package\PackageTmp\favicon.ico" />
+    <Content Include="obj\Release\Package\PackageTmp\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\bootstrap.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\bootstrap.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery-1.10.2.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery-1.10.2.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery.validate.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery.validate.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\modernizr-2.6.2.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\respond.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\respond.min.js" />
+    <Content Include="obj\Release\TempPE\Models.AccomodationModel.Context.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.AccomodationModel.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.AccomodationModel.Designer.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.ActivitiesModel.Context.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.ActivitiesModel.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.ActivitiesModel.Designer.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.DiscussionsModel.Context.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.DiscussionsModel.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.DiscussionsModel.Designer.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.JobPostingModel.Context.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.JobPostingModel.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.JobPostingModel.Designer.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.UserRoleModel.Context.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.UserRoleModel.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.UserRoleModel.Designer.cs.dll" />
+    <Content Include="obj\Release\_WPPLastBuildInfo.txt" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\ApplicationInsights.config" />
+    <Content Include="bin\ConestogaConnect.dll.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="obj\Debug\ConestogaConnect.csproj.CopyComplete" />
+    <Content Include="obj\Debug\ConestogaConnect.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\ConestogaConnect.csproj.GenerateResource.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\AccomodationModel.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\AccomodationModel.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\AccomodationModel.ssdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ActivitiesModel.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ActivitiesModel.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\ActivitiesModel.ssdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\DiscussionsModel.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\DiscussionsModel.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\DiscussionsModel.ssdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\JobPostingModel.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\JobPostingModel.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\JobPostingModel.ssdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\UserRoleModel.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\UserRoleModel.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\UserRoleModel.ssdl" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\ApplicationInsights.config" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\ApplicationInsights.config" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Models\AccomodationModel.edmx.diagram" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Models\ActivitiesModel.edmx.diagram" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Models\DiscussionsModel.edmx.diagram" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Models\JobPostingModel.edmx.diagram" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Models\UserRoleModel.edmx.diagram" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Scripts\jquery-1.10.2.min.map" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Accomodations\Create.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Accomodations\Delete.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Accomodations\Details.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Accomodations\DisplayAccomodations.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Accomodations\Edit.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Accomodations\Index.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Account\ForgotPassword.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Account\Login.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Account\Register.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Account\ResetPassword.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Account\SendCode.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Account\VerifyCode.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Activities\Create.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Activities\Delete.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Activities\Details.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Activities\DisplayActivity.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Activities\Edit.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Activities\Index.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Discussion\GetPosts.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Discussion\_MyComments.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Discussion\_MySubComments.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\GetPosts.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Home\About.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Home\Contact.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Home\Dashboard.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Home\Index.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\JobPostings\Create.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\JobPostings\Delete.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\JobPostings\Details.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\JobPostings\DisplayJobPosting.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\JobPostings\Edit.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\JobPostings\Index.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Manage\ChangePassword.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Manage\Index.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Manage\ManageLogins.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Manage\SetPassword.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Shared\Error.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Shared\Info.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Shared\Lockout.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Shared\_Layout.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\Web.config" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Views\_ViewStart.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\Source\Web.config" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\ApplicationInsights.config" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\ApplicationInsights.config" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\bin\App_global.asax.compiled" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Models\AccomodationModel.edmx.diagram" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Models\ActivitiesModel.edmx.diagram" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Models\DiscussionsModel.edmx.diagram" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Models\JobPostingModel.edmx.diagram" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Models\UserRoleModel.edmx.diagram" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\PrecompiledApp.config" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Scripts\jquery-1.10.2.min.map" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Accomodations\Create.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Accomodations\Delete.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Accomodations\Details.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Accomodations\DisplayAccomodations.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Accomodations\Edit.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Accomodations\Index.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\ForgotPassword.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\Login.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\ResetPassword.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\SendCode.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\VerifyCode.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Activities\Create.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Activities\Delete.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Activities\Details.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Activities\DisplayActivity.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Activities\Edit.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Activities\Index.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Discussion\GetPosts.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Discussion\_MyComments.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Discussion\_MySubComments.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\GetPosts.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Home\About.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Home\Contact.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Home\Dashboard.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\JobPostings\Create.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\JobPostings\Delete.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\JobPostings\Details.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\JobPostings\DisplayJobPosting.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\JobPostings\Edit.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\JobPostings\Index.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\ChangePassword.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\Index.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\ManageLogins.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\SetPassword.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Shared\Error.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Shared\Info.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Shared\Lockout.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Shared\_Layout.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\Web.config" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Views\_ViewStart.cshtml" />
+    <Content Include="obj\Release\AspnetCompileMerge\TempBuildDir\Web.config" />
+    <Content Include="obj\Release\ConestogaConnect.csproj.CopyComplete" />
+    <Content Include="obj\Release\ConestogaConnect.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Release\ConestogaConnect.csproj.GenerateResource.cache" />
+    <Content Include="obj\Release\ConestogaConnect.csprojAssemblyReference.cache" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\AccomodationModel.csdl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\AccomodationModel.msl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\AccomodationModel.ssdl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\ActivitiesModel.csdl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\ActivitiesModel.msl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\ActivitiesModel.ssdl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\DiscussionsModel.csdl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\DiscussionsModel.msl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\DiscussionsModel.ssdl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\JobPostingModel.csdl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\JobPostingModel.msl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\JobPostingModel.ssdl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\UserRoleModel.csdl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\UserRoleModel.msl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\UserRoleModel.ssdl" />
+    <Content Include="obj\Release\Package\PackageTmp\ApplicationInsights.config" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\ApplicationInsights.config" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\App_global.asax.compiled" />
+    <Content Include="obj\Release\Package\PackageTmp\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="obj\Release\Package\PackageTmp\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="obj\Release\Package\PackageTmp\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="obj\Release\Package\PackageTmp\Models\AccomodationModel.edmx.diagram" />
+    <Content Include="obj\Release\Package\PackageTmp\Models\ActivitiesModel.edmx.diagram" />
+    <Content Include="obj\Release\Package\PackageTmp\Models\DiscussionsModel.edmx.diagram" />
+    <Content Include="obj\Release\Package\PackageTmp\Models\JobPostingModel.edmx.diagram" />
+    <Content Include="obj\Release\Package\PackageTmp\Models\UserRoleModel.edmx.diagram" />
+    <Content Include="obj\Release\Package\PackageTmp\PrecompiledApp.config" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery-1.10.2.min.map" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Accomodations\Create.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Accomodations\Delete.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Accomodations\Details.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Accomodations\DisplayAccomodations.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Accomodations\Edit.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Accomodations\Index.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Account\ForgotPassword.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Account\Login.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Account\Register.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Account\ResetPassword.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Account\SendCode.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Account\VerifyCode.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Activities\Create.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Activities\Delete.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Activities\Details.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Activities\DisplayActivity.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Activities\Edit.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Activities\Index.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Discussion\GetPosts.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Discussion\_MyComments.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Discussion\_MySubComments.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\GetPosts.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Home\About.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Home\Contact.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Home\Dashboard.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Home\Index.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\JobPostings\Create.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\JobPostings\Delete.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\JobPostings\Details.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\JobPostings\DisplayJobPosting.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\JobPostings\Edit.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\JobPostings\Index.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Manage\ChangePassword.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Manage\Index.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Manage\ManageLogins.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Manage\SetPassword.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Shared\Error.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Shared\Info.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Shared\Lockout.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Web.config" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\_ViewStart.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Web.config" />
+    <Content Include="obj\Release\TransformWebConfig\assist\Web.config" />
+    <Content Include="obj\Release\TransformWebConfig\original\Web.config" />
+    <Content Include="obj\Release\TransformWebConfig\transformed\Web.config" />
+    <Content Include="Content\datepicker\package.json" />
+    <Content Include="Content\datetimepicker\jQuery-datetimepicker.2.4.5.nupkg" />
+    <EntityDeploy Include="Models\ConestogaConnectModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ConestogaConnectModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ConestogaConnectModel.edmx.diagram">
+      <DependentUpon>ConestogaConnectModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\AspNetUserRoles.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AspNetUserRoles.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\AspNetUserRoles.edmx.diagram">
+      <DependentUpon>AspNetUserRoles.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\multiselect\multiple-select.jquery.json" />
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="ClassDiagram2.cd" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\Info.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\JobPostings\Create.cshtml" />
+    <Content Include="Views\JobPostings\Delete.cshtml" />
+    <Content Include="Views\JobPostings\Details.cshtml" />
+    <Content Include="Views\JobPostings\Edit.cshtml" />
+    <Content Include="Views\JobPostings\Index.cshtml" />
+    <Content Include="Views\Accomodations\Create.cshtml" />
+    <Content Include="Views\Accomodations\Delete.cshtml" />
+    <Content Include="Views\Accomodations\Details.cshtml" />
+    <Content Include="Views\Accomodations\Edit.cshtml" />
+    <Content Include="Views\Accomodations\Index.cshtml" />
+    <Content Include="Views\JobPostings\DisplayJobPosting.cshtml" />
+    <Content Include="Views\Accomodations\DisplayAccomodations.cshtml" />
+    <Content Include="Views\Activities\Create.cshtml" />
+    <Content Include="Views\Activities\Delete.cshtml" />
+    <Content Include="Views\Activities\Details.cshtml" />
+    <Content Include="Views\Activities\Edit.cshtml" />
+    <Content Include="Views\Activities\Index.cshtml" />
+    <Content Include="Views\Activities\DisplayActivity.cshtml" />
+    <Content Include="Views\GetPosts.cshtml" />
+    <Content Include="Views\Discussion\_MyComments.cshtml" />
+    <Content Include="Views\Discussion\GetPosts.cshtml" />
+    <Content Include="Views\Discussion\_MySubComments.cshtml" />
+    <Content Include="Views\Meetings\Create.cshtml" />
+    <Content Include="Views\Meetings\Delete.cshtml" />
+    <Content Include="Views\Meetings\Details.cshtml" />
+    <Content Include="Views\Meetings\Edit.cshtml" />
+    <Content Include="Views\Meetings\Index.cshtml" />
+    <Content Include="Views\AddDiscussions\Create.cshtml" />
+    <Content Include="Views\AddDiscussions\Delete.cshtml" />
+    <Content Include="Views\AddDiscussions\Details.cshtml" />
+    <Content Include="Views\AddDiscussions\Edit.cshtml" />
+    <Content Include="Views\AddDiscussions\Index.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\NewsFeeds\Create.cshtml" />
+    <Content Include="Views\NewsFeeds\Delete.cshtml" />
+    <Content Include="Views\NewsFeeds\Details.cshtml" />
+    <Content Include="Views\NewsFeeds\Edit.cshtml" />
+    <Content Include="Views\NewsFeeds\Index.cshtml" />
+    <Content Include="Views\Shared\_NewsFeedPartial.cshtml" />
+    <Content Include="Views\Tutors\Create.cshtml" />
+    <Content Include="Views\Tutors\Delete.cshtml" />
+    <Content Include="Views\Tutors\Details.cshtml" />
+    <Content Include="Views\Tutors\Edit.cshtml" />
+    <Content Include="Views\Tutors\Index.cshtml" />
+    <Content Include="Views\Tutors\DisplayTutor.cshtml" />
+    <Content Include="Views\User\UserSettings.cshtml" />
+    <Content Include="Views\Books\Create.cshtml" />
+    <Content Include="Views\Books\Delete.cshtml" />
+    <Content Include="Views\Books\Details.cshtml" />
+    <Content Include="Views\Books\Edit.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
+    <Content Include="Views\Email\Index.cshtml" />
+    <Content Include="Views\User\FindFriends.cshtml" />
+    <Content Include="Views\Shared\_SideLinks.cshtml" />
+    <Content Include="Views\Manage\UserProfile.cshtml" />
+    <Content Include="Views\Meetings\DisplayMeetings.cshtml" />
+    <Content Include="Views\AddDiscussions\DisplayDiscussions.cshtml" />
+    <Content Include="Views\Discussion\DisplayDiscussionComments.cshtml" />
+    <Content Include="Views\Books\DisplayBooks.cshtml" />
+    <Content Include="Views\AspNetUsers\Create.cshtml" />
+    <Content Include="Views\AspNetUsers\Delete.cshtml" />
+    <Content Include="Views\AspNetUsers\Details.cshtml" />
+    <Content Include="Views\AspNetUsers\Edit.cshtml" />
+    <Content Include="Views\AspNetUsers\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\Books\" />
+    <Folder Include="Files\" />
+    <Folder Include="obj\Release\ProfileTransformWebConfig\transformed\Views\" />
+    <Folder Include="obj\Release\TransformWebConfig\transformed\Views\" />
+    <Folder Include="UploadedFiles\" />
+    <Folder Include="UploadImage\" />
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201805292127118_InitialCreate.resx">
+      <DependentUpon>201805292127118_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806022136344_InitialCreate1.resx">
+      <DependentUpon>201806022136344_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806050030427_InitialCreate2.resx">
+      <DependentUpon>201806050030427_InitialCreate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806051856201_InitialCreate3.resx">
+      <DependentUpon>201806051856201_InitialCreate3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806111839207_InitialCreate4.resx">
+      <DependentUpon>201806111839207_InitialCreate4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806121904239_InitialCreate5.resx">
+      <DependentUpon>201806121904239_InitialCreate5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806122031094_InitialCreate6.resx">
+      <DependentUpon>201806122031094_InitialCreate6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\ConestogaConnect.Migrations.InitialCreate.resources" />
+    <EmbeddedResource Include="obj\Debug\ConestogaConnect.Migrations.InitialCreate1.resources" />
+    <EmbeddedResource Include="obj\Debug\ConestogaConnect.Migrations.InitialCreate2.resources" />
+    <EmbeddedResource Include="obj\Debug\ConestogaConnect.Migrations.InitialCreate3.resources" />
+    <EmbeddedResource Include="obj\Debug\ConestogaConnect.Migrations.InitialCreate4.resources" />
+    <EmbeddedResource Include="obj\Debug\ConestogaConnect.Migrations.InitialCreate5.resources" />
+    <EmbeddedResource Include="obj\Debug\ConestogaConnect.Migrations.InitialCreate6.resources" />
+    <EmbeddedResource Include="obj\Release\ConestogaConnect.Migrations.InitialCreate.resources" />
+    <EmbeddedResource Include="obj\Release\ConestogaConnect.Migrations.InitialCreate1.resources" />
+    <EmbeddedResource Include="obj\Release\ConestogaConnect.Migrations.InitialCreate2.resources" />
+    <EmbeddedResource Include="obj\Release\ConestogaConnect.Migrations.InitialCreate3.resources" />
+    <EmbeddedResource Include="obj\Release\ConestogaConnect.Migrations.InitialCreate4.resources" />
+    <EmbeddedResource Include="obj\Release\ConestogaConnect.Migrations.InitialCreate5.resources" />
+    <EmbeddedResource Include="obj\Release\ConestogaConnect.Migrations.InitialCreate6.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57456</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57456/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Conestoga Connect</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Conestoga Connect", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (this.User.IsInRole("Student"))
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                        <li>@Html.ActionLink("JobPostings", "Index", "JobPostings")</li>
+                        <li>@Html.ActionLink("Books", "Index", "Books")</li>
+                        <li>@Html.ActionLink("Activities", "Index", "Activities")</li>
+                        <li>@Html.ActionLink("Discussion", "Index", "AddDiscussions")</li>
+                        <li>@Html.ActionLink("Meetings", "Index", "Meetings")</li>
+                        <li>@Html.ActionLink("Accomodations", "Index", "Accomodations")</li>
+                        <li>@Html.ActionLink("Settings", "UserSettings", "User")</li>
+                        <li>@Html.ActionLink("Email", "Index", "Email")</li>
+                    }
+                    @if (this.User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Dashboard", "Dashboard", "Home")</li>
+                        <li>@Html.ActionLink("JobPostings", "DisplayJobPosting", "JobPostings")</li>
+                        <li>@Html.ActionLink("Accomodations", "DisplayAccomodations", "Accomodations")</li>
+                        <li>@Html.ActionLink("Activities", "DisplayActivity", "Activities")</li>
+
+                    }
+                </ul>
+
+                @Html.Partial("_LoginPartial")
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                <div class="navbar-left" style="margin-top:12px;">
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Get, new { @class = "searchform" }))
+                    {
+                        <ul class="nav navbar-nav">
+                            <li>@Html.TextBox("keyword", null, ViewBag.CurrentFilter as string, new { @placeholder = "Search..." })</li>
+                            <li>
+                                <button type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </li>
+                        </ul>
+                    }
+
+                </div>
+                }
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="container-fluid">
+        <div class="body-content">
+            <p><div id="google_translate_element"></div></p>
+        </div>
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Conestoga Connect</p>
+
+            </footer>
+        </div>
+
+
+        @RenderSection("scripts", required: false)
+</body>
+</html>

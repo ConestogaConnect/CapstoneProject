@@ -1,0 +1,105 @@
+﻿@model IEnumerable<ConestogaConnect.Models.AspNetUser>
+@{
+    ViewBag.Title = "FindFriends";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Find Friends</h2>
+
+<section class="postSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2" ?>
+                @{ Html.RenderPartial("_SideLinks"); }
+            </div>
+
+            <div class="col-sm-7">
+                <div class="postInner">
+                    @foreach (var item in Model)
+                    {
+                        <div class="postBox">
+                            <div class="postHeader clearfix">
+                                <div class="postWriter pull-left">
+                                    @if (@item.ProfileImage == null)
+                                    {
+                                        <img src="../Content/images/user2.png" alt="User Profile Image" width="40">
+                                    }
+                                    else
+                                    {
+                                        <img src="@item.ProfileImage" alt="User Profile Image" class="profileimage" />
+                                    }
+
+                                    <span class="postName">@item.FirstName @item.LastName</span>
+                                </div>
+                                <div class="pull-right datePost">
+                                    <span></span>
+                                </div>
+                            </div>
+
+
+                            <div class="postDetail">
+                                <div class="postContent">
+                                    <p>
+
+                                        @Html.Raw("Student ID : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.StudentId) </strong>
+
+                                    </p>
+                                    <p>
+                                        @if (!string.IsNullOrEmpty(item.Email))
+            {
+                            @Html.Raw("Email : ")
+                            <strong>@Html.DisplayFor(modelItem => item.Email) </strong>
+}
+                                    </p>
+                                    <p>
+                                        @if (!string.IsNullOrEmpty(item.PhoneNumber))
+            {
+                            @Html.Raw("Phone : ")
+                            <strong>@Html.DisplayFor(modelItem => item.PhoneNumber) </strong>
+}
+                                    </p>
+
+                                    <p>
+                                        @if (!string.IsNullOrEmpty(item.Program))
+            {
+                            @Html.Raw("Program : ")
+                            <strong>@Html.DisplayFor(modelItem => item.Program) </strong>
+}
+                                    </p>
+                                    <p>
+                                        @Html.Raw("Semester : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.Semester) </strong>
+                                    </p>
+
+                                </div>
+                                <div class="postContentImages">
+                                    <div class="postImages">
+                                        @if (!string.IsNullOrEmpty(item.ProfileImage))
+                                        {
+                                        <img src="@item.ProfileImage" title="" class="postImg" />
+                                        }
+                                    </div>
+                                </div>
+                                <div style="clear:both"></div>
+
+
+                            </div>
+
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+
+
+            <div class="col-sm-3">
+                <div class="newsFeed">
+                    <h4>News</h4>
+                    @{Html.RenderAction("_NewsFeedPartial", "NewsFeeds");}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7bc25e8a8d42454a943fda4343533828" Name="Diagram1" ZoomLevel="52">
+        <EntityTypeShape EntityType="ConestagoModel.Activity" Width="1.5" PointX="23.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConestagoModel.ActivityType" Width="1.5" PointX="3.375" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConestagoModel.AspNetRole" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConestagoModel.AspNetUserActivation" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConestagoModel.AspNetUserClaim" Width="1.5" PointX="2.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConestagoModel.AspNetUserLogin" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConestagoModel.AspNetUser" Width="1.5" PointX="17.375" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConestagoModel.Discussion" Width="1.5" PointX="19.625" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConestagoModel.DiscussionComment" Width="1.5" PointX="19.625" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConestagoModel.JobPosting" Width="1.5" PointX="5.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConestagoModel.Meeting" Width="1.5" PointX="17.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConestagoModel.MeetingsStatu" Width="1.5" PointX="22.625" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConestagoModel.Program" Width="1.5" PointX="15" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConestagoModel.SubComment" Width="1.5" PointX="10.75" PointY="11.5" IsExpanded="true" />
+        <AssociationConnector Association="ConestagoModel.FK_Activities_dbo_ActivityType_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ConestagoModel.FK_Activities_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConestagoModel.FK_dbo_JobPosting_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConestagoModel.FK_Discussion_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="ConestagoModel.FK_DiscussionComments_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="ConestagoModel.FK_MeetingStatus_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ConestagoModel.FK_SubComments_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="ConestagoModel.FK_DiscussionComments_Discussion" ManuallyRouted="false" />
+        <AssociationConnector Association="ConestagoModel.FK2_SubComments_DiscussionComments" ManuallyRouted="false" />
+        <AssociationConnector Association="ConestagoModel.FK_Meetings_dbo_ProgramStatus_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ConestagoModel.FK_MeetingStatus_dbo_Meeting_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ConestagoModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ConestagoModel.NewsFeed" Width="1.5" PointX="5.25" PointY="21.625" />
+        <AssociationConnector Association="ConestagoModel.FK_dbo_NewsFeed_dbo_AspNetUsers_UserId" />
+        <EntityTypeShape EntityType="ConestagoModel.Tutor" Width="1.5" PointX="19.625" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="ConestagoModel.FK_dbo_Tutor_dbo_AspNetUsers_UserId" ></AssociationConnector>
+        <EntityTypeShape EntityType="ConestagoModel.UserSetting" Width="1.5" PointX="24.375" PointY="11.25" />
+        <AssociationConnector Association="ConestagoModel.FK_UserSettings_ToAspNetUser" />
+        <EntityTypeShape EntityType="ConestagoModel.ActivityInterest" Width="1.5" PointX="26.875" PointY="4.375" />
+        <EntityTypeShape EntityType="ConestagoModel.MeetingInterest" Width="1.5" PointX="25.625" PointY="14.75" />
+        <AssociationConnector Association="ConestagoModel.FK_ActivityInterest_ToActivity" />
+        <AssociationConnector Association="ConestagoModel.FK_ActivityInterest_ToAspNetUsers" />
+        <AssociationConnector Association="ConestagoModel.FK_MeetingInterest_ToAspNetUsers" />
+        <AssociationConnector Association="ConestagoModel.FK_MeetingInterest_ToMeetings" />
+        <AssociationConnector Association="ConestagoModel.FK_Tutor_ToPrograms" />
+        <EntityTypeShape EntityType="ConestagoModel.Book" Width="1.5" PointX="24.375" PointY="7.25" />
+        <AssociationConnector Association="ConestagoModel.FK_Books__AspNetUsers" />
+        <EntityTypeShape EntityType="ConestagoModel.Accomodation" Width="1.5" PointX="19.625" PointY="14.25" />
+        <EntityTypeShape EntityType="ConestagoModel.AccomodationImage" Width="1.5" PointX="21.875" PointY="10" />
+        <AssociationConnector Association="ConestagoModel.FK_AccomodationImages_Accomodations" />
+        <AssociationConnector Association="ConestagoModel.FK_dbo_Accomodation_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ConestagoModel.FK_AccomodationImages_AspNetUsers" />
+        <EntityTypeShape EntityType="ConestagoModel.UserUISetting" Width="1.5" PointX="24.25" PointY="4.375" />
+        <AssociationConnector Association="ConestagoModel.FK_UserUISettings_ToAspNetUsers" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

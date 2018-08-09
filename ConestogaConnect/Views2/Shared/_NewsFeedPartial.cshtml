@@ -1,0 +1,15 @@
+﻿@model IEnumerable<ConestogaConnect.Models.NewsFeed>
+
+@foreach (var item in Model)
+{
+    <div class="newsBox">
+        <h5>@Html.DisplayFor(modelItem => item.title)</h5>
+        <p>@string.Format("{0:MMM dd, yyyy HH:mm tt}", item.AddedOn)</p>
+        <p>
+        @Html.Raw((item.newsDetail.Length > 200 ? item.newsDetail.Substring(0,200) : item.newsDetail))
+        @if (item.newsDetail.Length > 200)
+        {
+        @Html.ActionLink("..More", "Details", new { id = item.Id }) 
+        }</p>
+    </div>
+}

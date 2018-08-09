@@ -1,0 +1,165 @@
+﻿@model ConestogaConnect.Models.SearchViewModel
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="body-content">
+
+    <h2>Search Results</h2>
+    @if (Model.accomodations.Count > 0)
+    {
+        foreach (var acc in Model.accomodations)
+        {
+            <div class="postInner">
+                <div class="postBox">
+                    <div class="postHeader clearfix">
+                        <div class="postWriter pull-left">
+                            <span class="postName">Accomodation</span>
+                        </div>
+                        <div class="pull-right datePost">
+                            <span>@string.Format("{0:MMM dd yyyy}", acc.Posted_Date) </span>
+                        </div>
+                    </div>
+                    <div class="postDetail">
+                        <p><strong>Number of rooms :</strong> @acc.Number_of_Rooms</p>
+                        <p>@Html.ActionLink("Check Details", "Details", "Accomodations", new { id = acc.Id }, null)</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    @if (Model.meetings.Count > 0)
+    {
+        foreach (var acc in Model.meetings)
+        {
+            <div class="postInner">
+                <div class="postBox">
+                    <div class="postHeader clearfix">
+                        <div class="postWriter pull-left">
+                            <span class="postName">Meetings</span>
+                        </div>
+                        <div class="pull-right datePost">
+                            <span>@string.Format("{0:MMM dd yyyy}", acc.AddedOn)  </span>
+                        </div>
+                    </div>
+                    <div class="postDetail">
+                        <p><strong>Activity : @acc.MeetingTitle</strong></p>
+                        <p>@Html.ActionLink("Check Details", "Details", "Meetings", new { id = acc.Id }, null)</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    @if (Model.activities.Count > 0)
+    {
+        foreach (var acc in Model.activities)
+        {
+            <div class="postInner">
+                <div class="postBox">
+                    <div class="postHeader clearfix">
+                        <div class="postWriter pull-left">
+                            <span class="postName">Activity</span>
+                        </div>
+                        <div class="pull-right datePost">
+                            <span>@string.Format("{0:MMM dd yyyy}", acc.Added_On)  </span>
+                        </div>
+                    </div>
+                    <div class="postDetail">
+                        <p><strong>Activity : @acc.ActivityName</strong></p>
+                        <p>@Html.ActionLink("Check Details", "Details", "Activities", new { id = acc.Id }, null)</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    @if (Model.jobPostings.Count > 0)
+    {
+        foreach (var acc in Model.jobPostings)
+        {
+            <div class="postInner">
+                <div class="postBox">
+                    <div class="postHeader clearfix">
+                        <div class="postWriter pull-left">
+                            <span class="postName">Job</span>
+                        </div>
+                        <div class="pull-right datePost">
+                            <span> @string.Format("{0:MMM dd yyyy}", acc.Posted_Date) </span>
+                        </div>
+                    </div>
+                    <div class="postDetail">
+                        <p><strong>Description : @acc.JobDescription</strong></p>
+                        <p>@Html.ActionLink("Check Details", "Details", "JobPostings", new { id = acc.Id }, null)</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    @if (Model.discussions.Count > 0)
+    {
+        foreach (var acc in Model.discussions)
+        {
+            <div class="postInner">
+                <div class="postBox">
+                    <div class="postHeader clearfix">
+                        <div class="postWriter pull-left">
+                            <span class="postName">Discussion</span>
+                        </div>
+                        <div class="pull-right datePost">
+                            <span>@string.Format("{0:MMM dd yyyy}", acc.Posted_Date) </span>
+                        </div>
+                    </div>
+                    <div class="postDetail">
+                        <p><strong>Description : @acc.Topic</strong></p>
+                        <p>@Html.ActionLink("Check Details", "GetPosts", "Discussion", new { id = acc.Id }, null)</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    @if (Model.tutors.Count > 0)
+    {
+        foreach (var acc in Model.tutors)
+        {
+            <div class="postInner">
+                <div class="postBox">
+                    <div class="postHeader clearfix">
+                        <div class="postWriter pull-left">
+                            <span class="postName">Tutors</span>
+                        </div>
+                        <div class="pull-right datePost">
+                            <span>@string.Format("{0:MMM dd yyyy}", acc.AddedOn) </span>
+                        </div>
+                    </div>
+                    <div class="postDetail">
+                        <p><strong>Tutor Name :</strong> @acc.Tutor_Name</p>
+                        <p>@Html.ActionLink("Check Details", "Details", "Tutors", new { id = acc.Id }, null)</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    @if (Model.books.Count > 0)
+    {
+        foreach (var acc in Model.books)
+        {
+            <div class="postInner">
+                <div class="postBox">
+                    <div class="postHeader clearfix">
+                        <div class="postWriter pull-left">
+                            <span class="postName">Books</span>
+                        </div>
+                        <div class="pull-right datePost">
+                            <span>@string.Format("{0:MMM dd yyyy}", acc.AddedOn) </span>
+                        </div>
+                    </div>
+                    <div class="postDetail">
+                        <p><strong>Book Title :</strong> @acc.BookTitle</p>
+                        <p>@Html.ActionLink("Check Details", "Details", "Books", new { id = acc.Id }, null)</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+</div>

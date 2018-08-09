@@ -1,0 +1,155 @@
+﻿@model IEnumerable<ConestogaConnect.Models.JobPosting>
+@using Microsoft.AspNet.Identity;
+
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <div class="col-lg-6"><h2 align="center">Jobs List</h2></div>
+    <div class="col-lg-6">
+        <a href="JobPostings/Create">
+            <img src="~/Content/Images/addbutton.png" class="img-responsive" id="postpadding" alt="button" style="width:7% !important;padding-top:7px; display: block; margin-left: auto; margin-right: auto" />
+            <p align="center">Add Job</p><br />
+        </a>
+    </div>
+</div>
+
+<hr />
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-2" ?>
+            @{ Html.RenderPartial("_SideLinks"); }
+        </div>
+
+
+        <div class="col-sm-7">
+            <div class="postInner">
+                @foreach (var item in Model)
+                {
+                    <div class="postBox">
+                        <div class="postHeader clearfix">
+                            <div class="postWriter pull-left">
+                                @if (@item.AspNetUser.ProfileImage == null)
+                                {
+                                    <img src="../Content/images/user2.png" alt="User Profile Image" width="40">
+                                }
+                                else
+                                {
+                                    <img src="@item.AspNetUser.ProfileImage" alt="User Profile Image" class="profileimage" />
+                                }
+
+                                <span class="postName"> @Html.DisplayFor(modelItem => item.AspNetUser.FirstName) @Html.DisplayFor(modelItem => item.AspNetUser.LastName)</span>
+                            </div>
+                            <div class="pull-right datePost">
+                                <span>@String.Format("{0:MMM dd, yyyy HH:mm tt}", item.Posted_Date)</span>
+                            </div>
+                        </div>
+
+
+                        <div class="postDetail">
+                            <p>@Html.DisplayFor(modelItem => item.JobTitle)</p>
+                            <hr />
+                            <p>@Html.DisplayFor(modelItem => item.JobSubTitle)</p>
+                            <p><strong>@Html.DisplayNameFor(model => model.Location): </strong>@Html.DisplayFor(modelItem => item.Location)</p>
+                            <p><strong>@Html.DisplayNameFor(model => model.JobPostingNumber): </strong>@Html.DisplayFor(modelItem => item.JobPostingNumber)</p>
+                            <p><strong>@Html.DisplayNameFor(model => model.JobType): </strong>@Html.DisplayFor(modelItem => item.JobType)</p>
+                            <p><strong>Description: </strong>@Html.DisplayFor(modelItem => item.JobDescription)</p>
+                            <p><strong>@Html.DisplayNameFor(model => model.Posted_Date): </strong>@Html.DisplayFor(modelItem => item.Posted_Date)</p>
+
+                            <p>
+                                @if (User.Identity.GetUserId() == item.UserId)
+                                {
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                                    @Html.Raw(" | ")
+                                }
+
+                                @Html.ActionLink("Details", "Details", new { id = item.Id })
+                                @if (User.Identity.GetUserId() == item.UserId)
+                                {
+                                    @Html.Raw(" | ")
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                }
+
+
+                            </p>
+
+                        </div>
+
+                    </div>
+                }
+            </div>
+
+        </div>
+
+
+        <div class="col-sm-3">
+            <div class="newsFeed">
+                <h4>News</h4>
+                @{Html.RenderAction("_NewsFeedPartial", "NewsFeeds");}
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+        
+        <link href="~/Content/datepicker/jquery-ui.min.css" rel="stylesheet" />
+        <link href="~/Content/datepicker/jquery-ui.structure.css" rel="stylesheet" />
+        <link href="~/Content/datepicker/jquery-ui.theme.css" rel="stylesheet" />
+        <script src="~/Content/datepicker/jquery-ui.js"></script>
+
+        <script type="text/javascript">
+            var dateFormat = "dd/mm/yy";
+            $(document).ready(function () {
+                var pdfrom = $("#pdfrom").datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    dateFormat: dateFormat,
+                    numberOfMonths: 1
+                }).on("change", function () {
+                    pdto.datepicker("option", "minDate", getDate(this));
+                }),
+                    pdto = $("#pdto").datepicker({
+                        defaultDate: "+1w",
+                        changeMonth: true,
+                        dateFormat: dateFormat,
+                        numberOfMonths: 1
+                    }).on("change", function () {
+                        pdfrom.datepicker("option", "maxDate", getDate(this));
+                    });
+
+                var ufrom = $("#ufrom").datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    dateFormat: dateFormat,
+                    numberOfMonths: 1
+                }).on("change", function () {
+                    uto.datepicker("option", "minDate", getDate(this));
+                }),
+                    uto = $("#uto").datepicker({
+                        defaultDate: "+1w",
+                        changeMonth: true,
+                        dateFormat: dateFormat,
+                        numberOfMonths: 1
+                    }).on("change", function () {
+                        ufrom.datepicker("option", "maxDate", getDate(this));
+                    });
+            });
+
+            function getDate(element) {
+                var date;
+                try {
+                    date = $.datepicker.parseDate(dateFormat, element.value);
+                } catch (error) {
+                    date = null;
+                }
+                return date;
+            }
+        </script>

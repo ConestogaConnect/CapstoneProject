@@ -1,0 +1,152 @@
+﻿using ConestogaConnect.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using System.Data.Entity;
+
+namespace ConestogaConnect.Controllers
+{
+    [Authorize(Roles = "Student,Admin")]
+    public class UserController : BaseController
+    {
+        // GET: User
+        public ActionResult UserSettings()
+        {
+            var userid = User.Identity.GetUserId();
+
+            List<UserSetting> settings = db.UserSettings.Where(x => x.UserId == userid).ToList();
+            if (settings.Count == 0)
+            {
+                settings = new List<UserSetting>();
+                settings.Add(new UserSetting { UserId = userid, Action = "Activity" });
+                settings.Add(new UserSetting { UserId = userid, Action = "Meeting" });
+                settings.Add(new UserSetting { UserId = userid, Action = "Discussion" });
+            }
+
+            ViewBag.bgcolor = "FFFFFF";
+            ViewBag.hbgcolor = "000000";
+            ViewBag.tbbgcolor = "089DE3";
+            var uisettings = db.UserUISettings.Where(x => x.UserId == userid).ToList();
+            if (uisettings.Count > 0)
+            {
+                var bg = uisettings.Where(x => x.Area == "BackgroundColor").FirstOrDefault();
+                var hbg = uisettings.Where(x => x.Area == "HeaderBackgroundColor").FirstOrDefault();
+                var tbbg = uisettings.Where(x => x.Area == "TitleBarBackgroundColor").FirstOrDefault();
+                if (tbbg != null)
+                {
+                    ViewBag.tbbgcolor = tbbg.Color;
+                }
+                if (bg != null)
+                {
+                    ViewBag.bgcolor = bg.Color;
+                }
+                if (hbg != null)
+                {
+                    ViewBag.hbgcolor = hbg.Color;
+                }
+            }
+            return View(settings);
+        }
+
+        [HttpPost]
+        public ActionResult UserSettings(List<UserSetting> settings)
+        {
+            try
+            {
+                foreach (var setting in settings)
+                {
+                    setting.UserId = User.Identity.GetUserId();
+                    if (setting.Id > 0)
+                    {
+
+                        db.Entry(setting).State = EntityState.Modified;
+                    }
+                    else
+                    {
+                        db.Entry(setting).State = EntityState.Added;
+                    }
+                }
+                db.SaveChanges();
+                return Json("");
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message);
+            }
+
+        }
+
+        [HttpPost]
+        public ActionResult SaveUserUISettings(string bgcolor, string hbgcolor, string tbbgcolor)
+        {
+            try
+            {
+                var userid = User.Identity.GetUserId();
+                var settings = db.UserUISettings.Where(X => X.UserId == userid).ToList();
+                var bg = settings.Where(x => x.Area == "BackgroundColor").FirstOrDefault();
+                if (bg == null)
+                {
+                    bg = new UserUISetting();
+                    bg.Area = "BackgroundColor";
+                    bg.UserId = userid;
+                }
+                var hbg = settings.Where(x => x.Area == "HeaderBackgroundColor").FirstOrDefault();
+                if (hbg == null)
+                {
+                    hbg = new UserUISetting();
+                    hbg.Area = "HeaderBackgroundColor";
+                    hbg.UserId = userid;
+                }
+                var tbbg = settings.Where(x => x.Area == "TitleBarBackgroundColor").FirstOrDefault();
+                if (tbbg == null)
+                {
+                    tbbg = new UserUISetting();
+                    tbbg.Area = "TitleBarBackgroundColor";
+                    tbbg.UserId = userid;
+                }
+                bg.Color = bgcolor;
+                hbg.Color = hbgcolor;
+                tbbg.Color = tbbgcolor;
+                if (bg.Id == 0)
+                {
+                    db.UserUISettings.Add(bg);
+                }
+                else
+                {
+                    db.Entry(bg).State = EntityState.Modified;
+                }
+                if (hbg.Id == 0)
+                {
+                    db.UserUISettings.Add(hbg);
+                }
+                else
+                {
+                    db.Entry(hbg).State = EntityState.Modified;
+                }
+                if (tbbg.Id == 0)
+                {
+                    db.UserUISettings.Add(tbbg);
+                }
+                else
+                {
+                    db.Entry(tbbg).State = EntityState.Modified;
+                }
+                db.SaveChanges();
+
+                Session["bgcolor"] = bgcolor;
+                Session["hbgcolor"] = hbgcolor;
+                Session["tbbgcolor"] = tbbgcolor;
+                return Json("");
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message);
+            }
+
+        }
+
+    }
+}

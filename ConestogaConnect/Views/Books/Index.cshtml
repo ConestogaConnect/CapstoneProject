@@ -1,0 +1,135 @@
+﻿@model IEnumerable<ConestogaConnect.Models.Book>
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<section class="postSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2" ?>
+                @{ Html.RenderPartial("_SideLinks"); }
+            </div>
+
+            <div class="col-sm-7">
+                <div class="postInner">
+                    @foreach (var item in Model)
+                    {
+                        <div class="postBox">
+                            <div class="postHeader clearfix">
+                                <div class="postWriter pull-left">
+                                    @if (@item.AspNetUser.ProfileImage == null)
+                                    {
+                                        <img src="../Content/images/user2.png" alt="User Profile Image" width="40">
+                                    }
+                                    else
+                                    {
+                                        <img src="@item.AspNetUser.ProfileImage" alt="User Profile Image" class="profileimage" />
+                                    }
+
+                                    <span class="postName"> @Html.DisplayFor(modelItem => item.AspNetUser.FirstName) @Html.DisplayFor(modelItem => item.AspNetUser.LastName)</span>
+                                </div>
+                                <div class="pull-right datePost">
+                                    <span>@string.Format("{0:MMM dd, yyyy HH:mm tt}", item.AddedOn)</span>
+                                </div>
+                            </div>
+
+
+                            <div class="postDetail">
+                                <p>
+                                    @if (item.BookTitle != null)
+                                    {
+                                        @Html.Raw("Book Name : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.BookTitle) </strong>
+                                    }
+                                </p>
+
+                                <p>
+                                    @if (item.AuthorName != null)
+                                    {
+                                        @Html.Raw("Author Name : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.AuthorName) </strong>
+                                    }
+                                </p>
+
+                                <p>
+                                    @if (item.BookDescription != null)
+                                    {
+                                        @Html.Raw("Book Description : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.BookDescription) </strong>
+                                    }
+                                </p>
+
+                                <p>
+                                    @if (item.BookPath != null)
+                                    {
+                                        <strong><a href="@Html.DisplayFor(modelItem => item.BookPath)"class="downloadlink">Download Book</a> </strong>
+                                    }
+                                </p>
+
+                                <p>
+                                    @if (item.BookPrice != null)
+                                    {
+                                        @Html.Raw("Book Price : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.BookPrice) </strong>
+                                    }
+                                </p>
+
+                                <p>
+                                    @if (User.Identity.GetUserId() == item.UserId)
+                                    {
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                                        @Html.Raw(" | ")
+                                    }
+
+                                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                                    @if (User.Identity.GetUserId() == item.UserId)
+                                    {
+                                        @Html.Raw(" | ")
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    }
+
+
+                                </p>
+
+
+                            </div>
+
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+
+
+            <div class="col-sm-3">
+                <div class="newsFeed">
+                    <h4>News</h4>
+                    @{Html.RenderAction("_NewsFeedPartial", "NewsFeeds");}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".downloadlink").click(function(e){
+            e.preventDefault();
+            var c = confirm("Are you sure you want to download the book?");
+            if (c) {
+                window.open($(this).attr("href"), "_blank");
+            }
+            });
+    });
+</script>

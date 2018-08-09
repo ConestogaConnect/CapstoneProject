@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ConestogaConnect.BundleConfig" Collapsed="true">
+    <Position X="35.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.FilterConfig" Collapsed="true">
+    <Position X="32.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.EmailService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\IdentityConfig.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ConestogaConnect.SmsService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\IdentityConfig.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ConestogaConnect.ApplicationUserManager" Collapsed="true">
+    <Position X="35.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\IdentityConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.ApplicationSignInManager" Collapsed="true">
+    <Position X="32.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\IdentityConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.RouteConfig" Collapsed="true">
+    <Position X="42.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Startup" Collapsed="true">
+    <Position X="35.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\Startup.Auth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.MvcApplication" Collapsed="true">
+    <Position X="32.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.AccomodationsController" Collapsed="true">
+    <Position X="27.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACABIACAAAAEAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\AccomodationsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.AccountController">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ConestogaConnect.Controllers.AccountController.CheckBoxRequired" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\AccountController.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+      <Class Name="ConestogaConnect.Controllers.AccountController.ChallengeResult" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\AccountController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAABAChACAAAAAAAAFgEgAABAABMKIAAAMRAAQgAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.ActivitiesController" Collapsed="true">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAEAIA=</HashCode>
+      <FileName>Controllers\ActivitiesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.AddDiscussionsController" Collapsed="true">
+    <Position X="9.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\AddDiscussionsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.AdministrationController">
+    <Position X="14" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\AdministrationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.BaseController" Collapsed="true">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAQAQBAAAEAAAAAAgAACAAQAAAAAAAIAAQ=</HashCode>
+      <FileName>Controllers\BaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.BooksController" Collapsed="true">
+    <Position X="34" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAACAAAAgAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\BooksController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.DiscussionController" Collapsed="true">
+    <Position X="20.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAIAAAAAACwgAAAAAAAAAEAAAAAAEgAAAAAAAA=</HashCode>
+      <FileName>Controllers\DiscussionController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.EmailController" Collapsed="true">
+    <Position X="23" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\EmailController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.HomeController" Collapsed="true">
+    <Position X="25.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAEACAAAAAAAAAAAAAAAAAEAAAAgAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.JobPostingsController" Collapsed="true">
+    <Position X="29.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAACABAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\JobPostingsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.ManageController" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABACAQiAAgAAAAEFhAAAAAAUAIMIAAEEEgAAkAAA=</HashCode>
+      <FileName>Controllers\ManageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.MeetingsController" Collapsed="true">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAACABAACAAAAAAAAAAAEAAEACAAEAAAAEAAA=</HashCode>
+      <FileName>Controllers\MeetingsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.NewsFeedsController" Collapsed="true">
+    <Position X="11.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAIAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\NewsFeedsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.TutorsController">
+    <Position X="16.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEACCAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\TutorsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Controllers.UserController">
+    <Position X="18.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAgAAAQAAAAAAAAAAAAAAAAABAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Migrations.InitialCreate" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201805292127118_InitialCreate.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ConestogaConnect.Migrations.InitialCreate1" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="41" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201806022136344_InitialCreate1.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ConestogaConnect.Migrations.InitialCreate2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="42.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201806050030427_InitialCreate2.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ConestogaConnect.Migrations.InitialCreate3" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="44.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201806051856201_InitialCreate3.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ConestogaConnect.Migrations.InitialCreate4" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="46.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201806111839207_InitialCreate4.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ConestogaConnect.Migrations.InitialCreate5" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201806121904239_InitialCreate5.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ConestogaConnect.Migrations.InitialCreate6" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201806122031094_InitialCreate6.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ConestogaConnect.Migrations.Configuration" Collapsed="true">
+    <Position X="42.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Migrations\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.AccomodationViewModel" Collapsed="true">
+    <Position X="35.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAECBAAAgAAgAQAIAEAgAACAAYBAAIAAAAAAAAZg=</HashCode>
+      <FileName>Models\AccomodationViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.ExternalLoginConfirmationViewModel" Collapsed="true">
+    <Position X="42.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.ExternalLoginListViewModel" Collapsed="true">
+    <Position X="44.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.SendCodeViewModel" Collapsed="true">
+    <Position X="46.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAAAIAAAAgAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.VerifyCodeViewModel" Collapsed="true">
+    <Position X="35.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAEAAAAAAAgAAAAAAAAAAAAAAIAAAAgAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.ForgotViewModel" Collapsed="true">
+    <Position X="35.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.LoginViewModel" Collapsed="true">
+    <Position X="37.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAgAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.RegisterViewModel" Collapsed="true">
+    <Position X="39.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAUAAACAAAAAAIAAAQAAAAAAAAAACAAAAAQACIAg=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.ResetPasswordViewModel" Collapsed="true">
+    <Position X="41" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAgAAAAAAAAAAACAAAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.ForgotPasswordViewModel" Collapsed="true">
+    <Position X="34" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.UserProfileViewModel" Collapsed="true">
+    <Position X="42.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAUAAACAAAAACIAAAYAAAAAAAAAAAAAEAAAACAAg=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.ActivityViewModel" Collapsed="true">
+    <Position X="42.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAgIAAAAAAAAAgAACAAAAAEIAACAAgQAAg=</HashCode>
+      <FileName>Models\ActivityViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.Entities" Collapsed="true">
+    <Position X="41" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Models\AspNetUserRoles.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.AspNetUserRole" Collapsed="true">
+    <Position X="46.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AspNetUserRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.ConestagoEntities" Collapsed="true">
+    <Position X="41" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCAAAABQgAIAgAAAAAABAAAAkgOEQAAAgAAAIIAABAE=</HashCode>
+      <FileName>Models\ConestogaConnectModel.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.Accomodation" Collapsed="true">
+    <Position X="31.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ACACAACAgAAggAgAQAIAAAgAACAAYAAAIAAAAAAAAYA=</HashCode>
+      <FileName>Models\Accomodation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.AccomodationImage" Collapsed="true">
+    <Position X="34" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAEAAAAQAAAAAIqAAAAAAAEAABAAAAAAAAA=</HashCode>
+      <FileName>Models\AccomodationImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.Activity" Collapsed="true">
+    <Position X="37.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAAgAAAAAAAAAAgAAAAAAAAEAAACAAgQAAk=</HashCode>
+      <FileName>Models\Activity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.ActivityInterest" Collapsed="true">
+    <Position X="39.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAEAAEAAAAAAAAgAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Models\ActivityInterest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.ActivityType" Collapsed="true">
+    <Position X="41" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAIAAAAA=</HashCode>
+      <FileName>Models\ActivityType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.AspNetRole" Collapsed="true">
+    <Position X="37.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAQAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AspNetRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.AspNetUser" Collapsed="true">
+    <Position X="39.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACCAUBAgCIAIEACIAAAQAABgAOEQAAIgQQAEJACBQk=</HashCode>
+      <FileName>Models\AspNetUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.AspNetUserActivation" Collapsed="true">
+    <Position X="41" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AspNetUserActivation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.AspNetUserClaim" Collapsed="true">
+    <Position X="42.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAQAAAAAgAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Models\AspNetUserClaim.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.AspNetUserLogin" Collapsed="true">
+    <Position X="44.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAEAAAABAAAAAAAAA=</HashCode>
+      <FileName>Models\AspNetUserLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.Book" Collapsed="true">
+    <Position X="32.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAEAAAAACAAAQIgAAAAAQAAAIAAEAAAAAAA=</HashCode>
+      <FileName>Models\Book.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.Discussion" Collapsed="true">
+    <Position X="46.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAABAAAAAAAAAAAAAAAgAAAAAAAAAIAAAACAAAQA=</HashCode>
+      <FileName>Models\Discussion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.DiscussionComment" Collapsed="true">
+    <Position X="32.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAAAAAAQAAACAAgAAACAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Models\DiscussionComment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.JobPosting" Collapsed="true">
+    <Position X="35.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCACACgAAAAAAAAAAAIAAEgAAAAAAAAAIAAAAAAIQQA=</HashCode>
+      <FileName>Models\JobPosting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.Meeting" Collapsed="true">
+    <Position X="41" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEQCAAAEgAAAAIIIAIAoAAAIUAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Models\Meeting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.MeetingInterest" Collapsed="true">
+    <Position X="42.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAEAAAAAAAAAAAgAAAAAAAAAAAAAAQAAAAg=</HashCode>
+      <FileName>Models\MeetingInterest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.MeetingsStatu" Collapsed="true">
+    <Position X="44.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAEAAAAQAAAAAAAAEAgAAAAAAAAAAAAAAQAAAAg=</HashCode>
+      <FileName>Models\MeetingsStatu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.NewsFeed" Collapsed="true">
+    <Position X="34" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAQAEAAAAAgAAAAAgAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Models\NewsFeed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.Program" Collapsed="true">
+    <Position X="37.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAIAAAAAA=</HashCode>
+      <FileName>Models\Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.SubComment" Collapsed="true">
+    <Position X="37.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAiAABAAAAAAAAAAAAAAAgAAAAAAAAgAAACAAAAAAA=</HashCode>
+      <FileName>Models\SubComment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.Tutor">
+    <Position X="41" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAQAAACEgAAAAAIABIAgAAAAAAAAAMAEAIAAAAAA=</HashCode>
+      <FileName>Models\Tutor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.UserSetting" Collapsed="true">
+    <Position X="44.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAAAAAAAAAAAAAgAAABAAAAAAQAAAAAAAAQ=</HashCode>
+      <FileName>Models\UserSetting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.EmailFormModel" Collapsed="true">
+    <Position X="35.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\EmailFormModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.EmailViewModel" Collapsed="true">
+    <Position X="39.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAIABAAAAAEAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\EmailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.PreferenceViewModel" Collapsed="true">
+    <Position X="35.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\EmailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.UserViewModel" Collapsed="true">
+    <Position X="32.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAIAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\EmailViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.ApplicationUser" Collapsed="true">
+    <Position X="34" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAUAACAAAAAACIAAAAAAAAAAAAAAAAAAAEAACAAg=</HashCode>
+      <FileName>Models\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.ApplicationDbContext" Collapsed="true">
+    <Position X="46.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.IndexViewModel" Collapsed="true">
+    <Position X="37.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAQAAAAAAAAAAAAAAQAAAEAEA=</HashCode>
+      <FileName>Models\ManageViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.ManageLoginsViewModel" Collapsed="true">
+    <Position X="39.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Models\ManageViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.FactorViewModel" Collapsed="true">
+    <Position X="46.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Models\ManageViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.SetPasswordViewModel" Collapsed="true">
+    <Position X="32.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\ManageViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.ChangePasswordViewModel" Collapsed="true">
+    <Position X="37.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\ManageViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.AddPhoneNumberViewModel" Collapsed="true">
+    <Position X="44.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ManageViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.VerifyPhoneNumberViewModel" Collapsed="true">
+    <Position X="37.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ManageViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.ConfigureTwoFactorViewModel" Collapsed="true">
+    <Position X="44.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ManageViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.MeetingViewModel" Collapsed="true">
+    <Position X="46.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACEUGAAAEgIAAAIIIAAAIAACBQAAAAIQEAAAAAAAg=</HashCode>
+      <FileName>Models\MeetingViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.SearchViewModel" Collapsed="true">
+    <Position X="44.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gEAAAIAAAAAAQAAAAACAAQAAAAAAAAAggAAEAAAAAAA=</HashCode>
+      <FileName>Models\SearchViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.Models.UserUISetting" Collapsed="true">
+    <Position X="46.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAgQAAAAA=</HashCode>
+      <FileName>Models\UserUISetting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.ViewModels.DiscussionsVM" Collapsed="true">
+    <Position X="34" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAQA=</HashCode>
+      <FileName>Views\ViewModels\PostsVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.ViewModels.CommentsVM" Collapsed="true">
+    <Position X="39.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAABAA=</HashCode>
+      <FileName>Views\ViewModels\PostsVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.ViewModels.UserVM" Collapsed="true">
+    <Position X="34" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAQAAAAAAQAA=</HashCode>
+      <FileName>Views\ViewModels\PostsVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConestogaConnect.ViewModels.SubCommentsVM" Collapsed="true">
+    <Position X="39.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Views\ViewModels\PostsVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

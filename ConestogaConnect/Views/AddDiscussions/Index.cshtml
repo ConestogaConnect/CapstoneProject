@@ -1,0 +1,80 @@
+﻿@model IEnumerable<ConestogaConnect.Models.Discussion>
+@using Microsoft.AspNet.Identity;
+
+@{
+    ViewBag.Title = "Discussions";
+}
+
+<h2>Discussions</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<section class="postSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2" ?>
+                @{ Html.RenderPartial("_SideLinks"); }
+            </div>
+
+            <div class="col-sm-7">
+                <div class="postInner">
+                    @foreach (var item in Model)
+                    {
+                        <div class="postBox">
+                            <div class="postHeader clearfix">
+                                <div class="postWriter pull-left">
+                                    @if (@item.AspNetUser.ProfileImage == null)
+                                    {
+                                        <img src="../Content/images/user2.png" alt="User Profile Image" width="40">
+                                    }
+                                    else
+                                    {
+                                        <img src="@item.AspNetUser.ProfileImage" alt="User Profile Image" class="profileimage" />
+                                    }
+
+                                    <span class="postName"> @Html.DisplayFor(modelItem => item.AspNetUser.FirstName) @Html.DisplayFor(modelItem => item.AspNetUser.LastName)</span>
+                                </div>
+                                <div class="pull-right datePost">
+                                    <span> @string.Format("{0:MMM dd, yyyy HH:mm tt}", item.Posted_Date)</span>
+                                </div>
+                            </div>
+
+
+                            <div class="postDetail">
+                                <p><strong>Discussion Topic: </strong>@Html.DisplayFor(modelItem => item.Topic) </p>
+                                @if (item.Last_Updated != null)
+                                {
+                                    <p><strong>Last Updated: </strong>@string.Format("{0:MMM dd, yyyy HH:mm tt}", item.Last_Updated) </p>
+                                }
+
+                                @if (User.Identity.GetUserId() == item.UserId)
+                                {
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                                }
+                                |
+                                @Html.ActionLink("Start Discussion", "GetPosts", "Discussion", new { id = item.Id }, null)
+                                @if (User.Identity.GetUserId() == item.UserId)
+                                {
+                                    @Html.Raw(" | ")
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                }
+                            </div>
+
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="newsFeed">
+                    <h4>News</h4>
+                    
+                        @{Html.RenderAction("_NewsFeedPartial", "NewsFeeds");}
+           
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

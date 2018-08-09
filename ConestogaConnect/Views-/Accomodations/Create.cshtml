@@ -1,0 +1,175 @@
+﻿@model ConestogaConnect.Models.Accomodation
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm(new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Accomodation</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Number_of_Rooms, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Number_of_Rooms, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Number_of_Rooms, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Rent, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Rent, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Rent, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Facilities, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Facilities, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Facilities, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PetFriendly, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.PetFriendly, new SelectList(
+                        new List<Object>{
+                            new { value = true , text = "Yes"  },
+                            new { value = false , text = "No" },
+
+                        },
+                        "value",
+                        "text",
+                        1), new { @class = "form-control" }
+                )
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Parking, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Parking, new SelectList(
+                        new List<Object>{
+                            new { value = true , text = "Yes"  },
+                            new { value = false , text = "No" },
+
+                        },
+                        "value",
+                        "text",
+                        1), new { @class = "form-control" }
+                )
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Floor, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Floor, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Floor, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Furnished, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Furnished, new SelectList(
+                        new List<Object>{
+                            new { value = true , text = "Yes"  },
+                            new { value = false , text = "No" },
+
+                        },
+                        "value",
+                        "text",
+                        1), new { @class = "form-control" }
+                )
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12">
+            @Html.HiddenFor(model => model.Image_Id, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Image_Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="col-md-4">
+            <input type="file" id="SelectImage" /><br />
+            <a href="#" class="btn btn-sm btn-danger" onclick="UploadImage()">Upload</a>
+        </div>
+        <div class="col-md-4 thumbnail" id="UploadedImage"></div>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        //allimgid = [];
+        array1 = new Array();
+
+        var UploadImage = function () {
+            var file = $("#SelectImage").get(0).files;
+            var data = new FormData;
+            data.append("ImageFile", file[0]);
+
+
+            $.ajax({
+                type: "POST",
+                url: "ImageUpload",
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function (imgID) {
+
+                    console.log(array1);
+
+                    array1.push(imgID);
+                    //console.log(array1);
+
+                    array1.forEach(function (element) {
+                        console.log(element);
+                        //$(".allimage").append(element);
+                    });
+
+                    array1.toString();
+                    $("#Image_Id").val(array1);
+
+
+                    $("#UploadedImage").append('<img src="/Home/DisplayingImage?imgID=' + imgID + '"class=img-responsive  thimbnail"/>');
+                }
+            })
+        }
+    </script>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+
+
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

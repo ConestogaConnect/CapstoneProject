@@ -1,0 +1,69 @@
+﻿@model ConestogaConnect.Models.EmailViewModel
+
+@{
+    ViewBag.Title = "SendEmail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/multiselect/multiple-select.css" rel="stylesheet" />
+<script src="~/Content/multiselect/multiple-select.js"></script>
+<style>
+    input, select, textarea {
+     max-width:100% !important;
+    }
+</style>
+<div class="body-content">
+    <h2 class="adminpagehead">Send Email</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.HiddenFor(model => model.Sender)
+        <p>@TempData["SuccessMessage"]</p>
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Recipients, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Recipients, Model.emailList, new { @class = "" })
+                @Html.ValidationMessageFor(model => model.Recipients, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Body, new { @class = "form-control", @rows = "10", @columns = "40" })
+                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Send" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    }
+
+   
+    </div>
+    <script>
+        $('select').multipleSelect({
+            filter: true,
+            multiple: true,
+            width: '100%',
+            keepOpen: true
+        });
+    </script>

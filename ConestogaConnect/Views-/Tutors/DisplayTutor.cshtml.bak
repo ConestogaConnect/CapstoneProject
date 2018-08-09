@@ -1,0 +1,249 @@
+﻿@model IEnumerable<ConestogaConnect.Models.Tutor>
+
+@{
+    ViewBag.Title = "Tutors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Find Tutors</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<fieldset>
+    <legend>Search</legend>
+    @using (Html.BeginForm("DisplayTutor", "Tutors", FormMethod.Get))
+    {
+        <div class="row">
+            <div class="col-xs-12 col-md-3">
+                <div class="col-sm-4">Tutor Name</div>
+                <div class="col-sm-8">@Html.TextBox("tname", null, new { @class = "form-control" }) </div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <div class="col-sm-4">Course</div>
+                <div class="col-sm-8">@Html.TextBox("crs", null, new { @class = "form-control" })</div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <div class="col-sm-4">Availablity</div>
+                <div class="col-sm-8">@Html.TextBox("avl", null, new { @class = "form-control" })</div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <div class="col-sm-4">Description </div>
+                <div class="col-sm-8">@Html.TextBox("desc", null, new { @class = "form-control" })</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-3">
+                <div class="col-sm-4">Program</div>
+                <div class="col-sm-8">@Html.DropDownList("program", (IEnumerable<SelectListItem>)ViewBag.program, "Select Program", new { @class = "form-control" }) </div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <div class="col-sm-4">Email</div>
+                <div class="col-sm-8">@Html.TextBox("email", null, new { @class = "form-control" })</div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <div class="col-sm-4">Phone</div>
+                <div class="col-sm-8">@Html.TextBox("phn", null, new { @class = "form-control" })</div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-3">
+                <div class="col-sm-4">Added From</div>
+                <div class="col-sm-8">@Html.TextBox("afrom", null, new { @class = "form-control", @readonly = "readonly" })</div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <div class="col-sm-4">Added To</div>
+                <div class="col-sm-8">@Html.TextBox("ato", null, new { @class = "form-control", @readonly = "readonly" })</div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <div class="col-sm-4">Updated From</div>
+                <div class="col-sm-8">@Html.TextBox("ufrom", null, new { @class = "form-control", @readonly = "readonly" })</div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <div class="col-sm-4">Updated To</div>
+                <div class="col-sm-8">@Html.TextBox("uto", null, new { @class = "form-control", @readonly = "readonly" })</div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-12 col-md-3">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-8"><input type="submit" value="Search" class="btn btn-default" /></div>
+
+            </div>
+        </div>
+    }
+</fieldset>
+
+<section class="postSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2" ?>
+                <div class="postLeftBar">
+                    <h4 class="name"><a href="#">Sandeep Kaur</a></h4>
+                    <ul>
+                        <li>
+                            <a href="#">Accomodation</a>
+                        </li>
+                        <li>
+                            <a href="#">Types</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Find Books</a>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-sm-7">
+                <div class="postInner">
+                    @foreach (var item in Model)
+                    {
+                        <div class="postBox">
+                            <div class="postHeader clearfix">
+                                <div class="postWriter pull-left">
+                                    <img src="images/profile.jpg" alt="" width="40">
+                                    <span class="postName">@Html.DisplayFor(modelItem => item.AspNetUser.FirstName) @Html.DisplayFor(modelItem => item.AspNetUser.LastName)</span>
+                                </div>
+                                <div class="pull-right datePost">
+                                    <span>@string.Format("{0:MMM dd, yyyy HH:mm tt}", item.AddedOn)</span>
+                                </div>
+                            </div>
+
+                            <div class="postDetail">
+                                <p>
+                                    @if (item.Tutor_Name != null)
+                                    {
+                                        @Html.Raw("Tutor Name : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.Tutor_Name) </strong>
+                                    }
+                                </p>
+
+                                <p>
+                                    @if (item.Program != null)
+                                    {
+                                        @Html.Raw("Program : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.ProgramName) </strong>
+                                    }
+                                </p>
+
+                                <p>
+                                    @if (item.Course != null)
+                                    {
+                                        @Html.Raw("Course/Subject : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.Course) </strong>
+                                    }
+                                </p>
+
+                                <p>
+                                    @if (item.Availability != null)
+                                    {
+                                        @Html.Raw("Availability : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.Availability) </strong>
+                                    }
+                                </p>
+
+                                <p>@Html.DisplayFor(modelItem => item.Description)</p>
+
+                                <hr />
+                                <p>Contact Me</p>
+                                <p>
+                                    @if (item.Phone != null)
+                                    {
+                                        @Html.Raw("Phone : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.Phone) </strong>
+                                    }
+                                </p>
+
+                                <p>
+                                    @if (item.Email != null)
+                                    {
+                                        @Html.Raw("Email : ")
+                                        <strong>@Html.DisplayFor(modelItem => item.Email) </strong>
+                                    }
+                                </p>
+
+
+                            </div>
+
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+
+
+            <div class="col-sm-3">
+                <div class="newsFeed">
+                    <h4>News</h4>
+                    @{Html.RenderAction("_NewsFeedPartial", "NewsFeeds");}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<link href="~/Content/datepicker/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/datepicker/jquery-ui.structure.css" rel="stylesheet" />
+<link href="~/Content/datepicker/jquery-ui.theme.css" rel="stylesheet" />
+<script src="~/Content/datepicker/jquery-ui.js"></script>
+
+<script type="text/javascript">
+    var dateFormat = "dd/mm/yy";
+    $(document).ready(function () {
+        var pdfrom = $("#afrom").datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            dateFormat: dateFormat,
+            numberOfMonths: 1
+        }).on("change", function () {
+            pdto.datepicker("option", "minDate", getDate(this));
+        }),
+            pdto = $("#ato").datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                dateFormat: dateFormat,
+                numberOfMonths: 1
+            }).on("change", function () {
+                pdfrom.datepicker("option", "maxDate", getDate(this));
+            });
+
+        var ufrom = $("#ufrom").datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            dateFormat: dateFormat,
+            numberOfMonths: 1
+        }).on("change", function () {
+            uto.datepicker("option", "minDate", getDate(this));
+        }),
+            uto = $("#uto").datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                dateFormat: dateFormat,
+                numberOfMonths: 1
+            }).on("change", function () {
+                ufrom.datepicker("option", "maxDate", getDate(this));
+            });
+    });
+
+    function getDate(element) {
+        var date;
+        try {
+            date = $.datepicker.parseDate(dateFormat, element.value);
+        } catch (error) {
+            date = null;
+        }
+        return date;
+    }
+</script>

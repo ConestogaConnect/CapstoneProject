@@ -1,0 +1,1847 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ConestagoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accomodation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Number_of_Rooms" Type="int" />
+          <Property Name="Rent" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Facilities" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="PetFriendly" Type="bit" />
+          <Property Name="Parking" Type="bit" />
+          <Property Name="Floor" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Furnished" Type="bit" />
+          <Property Name="Posted_Date" Type="datetime2" Precision="7" />
+          <Property Name="Last_Updated" Type="datetime2" Precision="7" />
+          <Property Name="Image_Id" Type="nvarchar(max)" />
+          <Property Name="Location" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AccomodationImages">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageTitle" Type="nvarchar" MaxLength="500" />
+          <Property Name="ImageByte" Type="image" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="500" />
+          <Property Name="AccomodationId" Type="int" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" />
+          <Property Name="AddedOn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Activities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="ActivityName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="ActivityTypeId" Type="int" Nullable="false" />
+          <Property Name="Added_On" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Updated_On" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="ActivityInterest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" />
+          <Property Name="ActivityId" Type="int" />
+          <Property Name="AddedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ActivityType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityType" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserActivation">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ActivationCode" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="ConfirmedEmail" Type="bit" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Program" Type="nvarchar(max)" />
+          <Property Name="Semester" Type="int" Nullable="false" />
+          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="ProfileImage" Type="nvarchar"  MaxLength="500" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Books">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookTitle" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="BookPath" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="AddedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" />
+          <Property Name="BookDescription" Type="nvarchar(max)" />
+          <Property Name="AuthorName" Type="nvarchar" MaxLength="150" />
+          <Property Name="BookPrice" Type="float" />
+        </EntityType>
+        <EntityType Name="Discussion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Topic" Type="varchar(max)" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Posted_Date" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Last_Updated" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="DiscussionComments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommentMessage" Type="varchar(max)" Nullable="false" />
+          <Property Name="CommentDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="DiscussionId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JobPosting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="JobPostingNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JobTitle" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JobDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JobType" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Salary" Type="float" />
+          <Property Name="Experience" Type="nvarchar(max)" />
+          <Property Name="Location" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="JobSubTitle" Type="nvarchar(max)" />
+          <Property Name="Posted_Date" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Last_Updated" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="MeetingInterest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" />
+          <Property Name="MeetingId" Type="int" />
+          <Property Name="AddedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Meetings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MeetingTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="250" />
+          <Property Name="MeetingDateTime" Type="datetime" />
+          <Property Name="Location" Type="nvarchar" MaxLength="250" />
+          <Property Name="Program" Type="int" />
+          <Property Name="Semester" Type="int" />
+          <Property Name="AddedBy" Type="nvarchar" MaxLength="150" />
+          <Property Name="AddedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="150" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="MeetingsStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MeetingId" Type="int" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" />
+          <Property Name="IsAccepted" Type="bit" />
+          <Property Name="AcceptedOn" Type="datetime" />
+          <Property Name="RejectedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NewsFeed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="newsDetail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AddedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Programs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgramName" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="SubComments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommentMessage" Type="varchar(max)" Nullable="false" />
+          <Property Name="CommentedDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CommentId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tutor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tutor Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Program" Type="int" />
+          <Property Name="Course" Type="nvarchar" MaxLength="250" />
+          <Property Name="Availability" Type="nvarchar" MaxLength="350" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AddedOn" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime2" Precision="7" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Phone" Type="nchar" MaxLength="10" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserSettings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="IsEmail" Type="bit" Nullable="false" />
+          <Property Name="IsSms" Type="bit" Nullable="false" />
+          <Property Name="Action" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserUISettings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Area" Type="nvarchar" MaxLength="50" />
+          <Property Name="Color" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" />
+        </EntityType>
+        <Association Name="FK_AccomodationImages_Accomodations">
+          <End Role="Accomodation" Type="Self.Accomodation" Multiplicity="0..1" />
+          <End Role="AccomodationImages" Type="Self.AccomodationImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accomodation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccomodationImages">
+              <PropertyRef Name="AccomodationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccomodationImages_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="AccomodationImages" Type="Self.AccomodationImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccomodationImages">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activities_dbo_ActivityType_Id">
+          <End Role="ActivityType" Type="Self.ActivityType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Activities" Type="Self.Activities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activities">
+              <PropertyRef Name="ActivityTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activities_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Activities" Type="Self.Activities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activities">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityInterest_ToActivity">
+          <End Role="Activities" Type="Self.Activities" Multiplicity="0..1" />
+          <End Role="ActivityInterest" Type="Self.ActivityInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityInterest">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityInterest_ToAspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="ActivityInterest" Type="Self.ActivityInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityInterest">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Books__AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Accomodation_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Accomodation" Type="Self.Accomodation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accomodation">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_JobPosting_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JobPosting" Type="Self.JobPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobPosting">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_NewsFeed_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NewsFeed" Type="Self.NewsFeed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NewsFeed">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Tutor_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Tutor" Type="Self.Tutor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tutor">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Discussion_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Discussion" Type="Self.Discussion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Discussion">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiscussionComments_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DiscussionComments" Type="Self.DiscussionComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DiscussionComments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiscussionComments_Discussion">
+          <End Role="Discussion" Type="Self.Discussion" Multiplicity="1" />
+          <End Role="DiscussionComments" Type="Self.DiscussionComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discussion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DiscussionComments">
+              <PropertyRef Name="DiscussionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingInterest_ToAspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="MeetingInterest" Type="Self.MeetingInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingInterest">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingInterest_ToMeetings">
+          <End Role="Meetings" Type="Self.Meetings" Multiplicity="0..1" />
+          <End Role="MeetingInterest" Type="Self.MeetingInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meetings">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingInterest">
+              <PropertyRef Name="MeetingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meetings_dbo_ProgramStatus_Id">
+          <End Role="Programs" Type="Self.Programs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Meetings" Type="Self.Meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Programs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="Program" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingStatus_dbo_AspNetUsers_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MeetingsStatus" Type="Self.MeetingsStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingsStatus">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingStatus_dbo_Meeting_Id">
+          <End Role="Meetings" Type="Self.Meetings" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MeetingsStatus" Type="Self.MeetingsStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meetings">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingsStatus">
+              <PropertyRef Name="MeetingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubComments_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SubComments" Type="Self.SubComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubComments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tutor_ToPrograms">
+          <End Role="Programs" Type="Self.Programs" Multiplicity="0..1" />
+          <End Role="Tutor" Type="Self.Tutor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Programs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tutor">
+              <PropertyRef Name="Program" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSettings_ToAspNetUser">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="UserSettings" Type="Self.UserSettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserSettings">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserUISettings_ToAspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="UserUISettings" Type="Self.UserUISettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserUISettings">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK2_SubComments_DiscussionComments">
+          <End Role="DiscussionComments" Type="Self.DiscussionComments" Multiplicity="1" />
+          <End Role="SubComments" Type="Self.SubComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiscussionComments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubComments">
+              <PropertyRef Name="CommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ConestagoModelStoreContainer">
+          <EntitySet Name="Accomodation" EntityType="Self.Accomodation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccomodationImages" EntityType="Self.AccomodationImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Activities" EntityType="Self.Activities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityInterest" EntityType="Self.ActivityInterest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityType" EntityType="Self.ActivityType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserActivation" EntityType="Self.AspNetUserActivation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Discussion" EntityType="Self.Discussion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiscussionComments" EntityType="Self.DiscussionComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobPosting" EntityType="Self.JobPosting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MeetingInterest" EntityType="Self.MeetingInterest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meetings" EntityType="Self.Meetings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MeetingsStatus" EntityType="Self.MeetingsStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsFeed" EntityType="Self.NewsFeed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Programs" EntityType="Self.Programs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubComments" EntityType="Self.SubComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tutor" EntityType="Self.Tutor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserSettings" EntityType="Self.UserSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserUISettings" EntityType="Self.UserUISettings" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AccomodationImages_Accomodations" Association="Self.FK_AccomodationImages_Accomodations">
+            <End Role="Accomodation" EntitySet="Accomodation" />
+            <End Role="AccomodationImages" EntitySet="AccomodationImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccomodationImages_AspNetUsers" Association="Self.FK_AccomodationImages_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AccomodationImages" EntitySet="AccomodationImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activities_dbo_ActivityType_Id" Association="Self.FK_Activities_dbo_ActivityType_Id">
+            <End Role="ActivityType" EntitySet="ActivityType" />
+            <End Role="Activities" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activities_dbo_AspNetUsers_UserId" Association="Self.FK_Activities_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Activities" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityInterest_ToActivity" Association="Self.FK_ActivityInterest_ToActivity">
+            <End Role="Activities" EntitySet="Activities" />
+            <End Role="ActivityInterest" EntitySet="ActivityInterest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityInterest_ToAspNetUsers" Association="Self.FK_ActivityInterest_ToAspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ActivityInterest" EntitySet="ActivityInterest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Books__AspNetUsers" Association="Self.FK_Books__AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Accomodation_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_Accomodation_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Accomodation" EntitySet="Accomodation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_JobPosting_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_JobPosting_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="JobPosting" EntitySet="JobPosting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_NewsFeed_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_NewsFeed_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NewsFeed" EntitySet="NewsFeed" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Tutor_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_Tutor_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Tutor" EntitySet="Tutor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Discussion_AspNetUsers" Association="Self.FK_Discussion_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Discussion" EntitySet="Discussion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiscussionComments_AspNetUsers" Association="Self.FK_DiscussionComments_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="DiscussionComments" EntitySet="DiscussionComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiscussionComments_Discussion" Association="Self.FK_DiscussionComments_Discussion">
+            <End Role="Discussion" EntitySet="Discussion" />
+            <End Role="DiscussionComments" EntitySet="DiscussionComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingInterest_ToAspNetUsers" Association="Self.FK_MeetingInterest_ToAspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="MeetingInterest" EntitySet="MeetingInterest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingInterest_ToMeetings" Association="Self.FK_MeetingInterest_ToMeetings">
+            <End Role="Meetings" EntitySet="Meetings" />
+            <End Role="MeetingInterest" EntitySet="MeetingInterest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meetings_dbo_ProgramStatus_Id" Association="Self.FK_Meetings_dbo_ProgramStatus_Id">
+            <End Role="Programs" EntitySet="Programs" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingStatus_dbo_AspNetUsers_Id" Association="Self.FK_MeetingStatus_dbo_AspNetUsers_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="MeetingsStatus" EntitySet="MeetingsStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingStatus_dbo_Meeting_Id" Association="Self.FK_MeetingStatus_dbo_Meeting_Id">
+            <End Role="Meetings" EntitySet="Meetings" />
+            <End Role="MeetingsStatus" EntitySet="MeetingsStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubComments_AspNetUsers" Association="Self.FK_SubComments_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SubComments" EntitySet="SubComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tutor_ToPrograms" Association="Self.FK_Tutor_ToPrograms">
+            <End Role="Programs" EntitySet="Programs" />
+            <End Role="Tutor" EntitySet="Tutor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSettings_ToAspNetUser" Association="Self.FK_UserSettings_ToAspNetUser">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UserSettings" EntitySet="UserSettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserUISettings_ToAspNetUsers" Association="Self.FK_UserUISettings_ToAspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UserUISettings" EntitySet="UserUISettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK2_SubComments_DiscussionComments" Association="Self.FK2_SubComments_DiscussionComments">
+            <End Role="DiscussionComments" EntitySet="DiscussionComments" />
+            <End Role="SubComments" EntitySet="SubComments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConestagoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ActivityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ActivityTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Added_On" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Updated_On" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="ActivityType" Relationship="Self.FK_Activities_dbo_ActivityType_Id" FromRole="Activities" ToRole="ActivityType" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Activities_dbo_AspNetUsers_UserId" FromRole="Activities" ToRole="AspNetUsers" />
+          <NavigationProperty Name="ActivityInterests" Relationship="ConestagoModel.FK_ActivityInterest_ToActivity" FromRole="Activity" ToRole="ActivityInterest" />
+        </EntityType>
+        <EntityType Name="ActivityType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityType1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activities" Relationship="Self.FK_Activities_dbo_ActivityType_Id" FromRole="ActivityType" ToRole="Activities" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserActivation">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ActivationCode" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirmedEmail" Type="Boolean" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Program" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Semester" Type="Int32" Nullable="false" />
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="ProfileImage" Type="String" Nullable="true" MaxLength="500" />
+          <NavigationProperty Name="Activities" Relationship="Self.FK_Activities_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="Activities" />
+          <NavigationProperty Name="JobPostings" Relationship="Self.FK_dbo_JobPosting_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="JobPosting" />
+          <NavigationProperty Name="Discussions" Relationship="Self.FK_Discussion_AspNetUsers" FromRole="AspNetUsers" ToRole="Discussion" />
+          <NavigationProperty Name="DiscussionComments" Relationship="Self.FK_DiscussionComments_AspNetUsers" FromRole="AspNetUsers" ToRole="DiscussionComments" />
+          <NavigationProperty Name="MeetingsStatus" Relationship="Self.FK_MeetingStatus_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="MeetingsStatus" />
+          <NavigationProperty Name="SubComments" Relationship="Self.FK_SubComments_AspNetUsers" FromRole="AspNetUsers" ToRole="SubComments" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="NewsFeeds" Relationship="ConestagoModel.FK_dbo_NewsFeed_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="NewsFeed" />
+          <NavigationProperty Name="Tutors" Relationship="ConestagoModel.FK_dbo_Tutor_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="Tutor" />
+          <NavigationProperty Name="UserSettings" Relationship="ConestagoModel.FK_UserSettings_ToAspNetUser" FromRole="AspNetUser" ToRole="UserSetting" />
+          <NavigationProperty Name="ActivityInterests" Relationship="ConestagoModel.FK_ActivityInterest_ToAspNetUsers" FromRole="AspNetUser" ToRole="ActivityInterest" />
+          <NavigationProperty Name="MeetingInterests" Relationship="ConestagoModel.FK_MeetingInterest_ToAspNetUsers" FromRole="AspNetUser" ToRole="MeetingInterest" />
+          <NavigationProperty Name="Books" Relationship="ConestagoModel.FK_Books__AspNetUsers" FromRole="AspNetUser" ToRole="Book" />
+          <NavigationProperty Name="Accomodations" Relationship="ConestagoModel.FK_dbo_Accomodation_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="Accomodation" />
+          <NavigationProperty Name="AccomodationImages" Relationship="ConestagoModel.FK_AccomodationImages_AspNetUsers" FromRole="AspNetUser" ToRole="AccomodationImage" />
+          <NavigationProperty Name="UserUISettings" Relationship="ConestagoModel.FK_UserUISettings_ToAspNetUsers" FromRole="AspNetUser" ToRole="UserUISetting" />
+        </EntityType>
+        <EntityType Name="Discussion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Topic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Posted_Date" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Last_Updated" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Discussion_AspNetUsers" FromRole="Discussion" ToRole="AspNetUsers" />
+          <NavigationProperty Name="DiscussionComments" Relationship="Self.FK_DiscussionComments_Discussion" FromRole="Discussion" ToRole="DiscussionComments" />
+        </EntityType>
+        <EntityType Name="DiscussionComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommentMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CommentDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="DiscussionId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_DiscussionComments_AspNetUsers" FromRole="DiscussionComments" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Discussion" Relationship="Self.FK_DiscussionComments_Discussion" FromRole="DiscussionComments" ToRole="Discussion" />
+          <NavigationProperty Name="SubComments" Relationship="Self.FK2_SubComments_DiscussionComments" FromRole="DiscussionComments" ToRole="SubComments" />
+        </EntityType>
+        <EntityType Name="JobPosting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JobPostingNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JobType" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Salary" Type="Double" />
+          <Property Name="Experience" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JobSubTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Posted_Date" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Last_Updated" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_JobPosting_dbo_AspNetUsers_UserId" FromRole="JobPosting" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MeetingTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MeetingDateTime" Type="DateTime" Precision="3" />
+          <Property Name="Location" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Program" Type="Int32" />
+          <Property Name="Semester" Type="Int32" />
+          <Property Name="AddedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="AddedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Program1" Relationship="Self.FK_Meetings_dbo_ProgramStatus_Id" FromRole="Meetings" ToRole="Programs" />
+          <NavigationProperty Name="MeetingsStatus" Relationship="Self.FK_MeetingStatus_dbo_Meeting_Id" FromRole="Meetings" ToRole="MeetingsStatus" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MeetingInterests" Relationship="ConestagoModel.FK_MeetingInterest_ToMeetings" FromRole="Meeting" ToRole="MeetingInterest" />
+        </EntityType>
+        <EntityType Name="MeetingsStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MeetingId" Type="Int32" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="IsAccepted" Type="Boolean" />
+          <Property Name="AcceptedOn" Type="DateTime" Precision="3" />
+          <Property Name="RejectedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_MeetingStatus_dbo_AspNetUsers_UserId" FromRole="MeetingsStatus" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Meeting" Relationship="Self.FK_MeetingStatus_dbo_Meeting_Id" FromRole="MeetingsStatus" ToRole="Meetings" />
+        </EntityType>
+        <EntityType Name="Program">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgramName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Meetings" Relationship="Self.FK_Meetings_dbo_ProgramStatus_Id" FromRole="Programs" ToRole="Meetings" />
+          <NavigationProperty Name="Tutors" Relationship="ConestagoModel.FK_Tutor_ToPrograms" FromRole="Program" ToRole="Tutor" />
+        </EntityType>
+        <EntityType Name="SubComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommentMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CommentedDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CommentId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_SubComments_AspNetUsers" FromRole="SubComments" ToRole="AspNetUsers" />
+          <NavigationProperty Name="DiscussionComment" Relationship="Self.FK2_SubComments_DiscussionComments" FromRole="SubComments" ToRole="DiscussionComments" />
+        </EntityType>
+        <Association Name="FK_Activities_dbo_ActivityType_Id">
+          <End Role="ActivityType" Type="Self.ActivityType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Activities" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activities">
+              <PropertyRef Name="ActivityTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activities_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Activities" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activities">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_JobPosting_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JobPosting" Type="Self.JobPosting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobPosting">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Discussion_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Discussion" Type="Self.Discussion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Discussion">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiscussionComments_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DiscussionComments" Type="Self.DiscussionComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DiscussionComments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingStatus_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MeetingsStatus" Type="Self.MeetingsStatu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingsStatus">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubComments_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SubComments" Type="Self.SubComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubComments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiscussionComments_Discussion">
+          <End Role="Discussion" Type="Self.Discussion" Multiplicity="1" />
+          <End Role="DiscussionComments" Type="Self.DiscussionComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discussion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DiscussionComments">
+              <PropertyRef Name="DiscussionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK2_SubComments_DiscussionComments">
+          <End Role="DiscussionComments" Type="Self.DiscussionComment" Multiplicity="1" />
+          <End Role="SubComments" Type="Self.SubComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiscussionComments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubComments">
+              <PropertyRef Name="CommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meetings_dbo_ProgramStatus_Id">
+          <End Role="Programs" Type="Self.Program" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Meetings" Type="Self.Meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Programs">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="Program" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingStatus_dbo_Meeting_Id">
+          <End Role="Meetings" Type="Self.Meeting" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MeetingsStatus" Type="Self.MeetingsStatu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meetings">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingsStatus">
+              <PropertyRef Name="MeetingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ConestagoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Activities" EntityType="Self.Activity" />
+          <EntitySet Name="ActivityTypes" EntityType="Self.ActivityType" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserActivations" EntityType="Self.AspNetUserActivation" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Discussions" EntityType="Self.Discussion" />
+          <EntitySet Name="DiscussionComments" EntityType="Self.DiscussionComment" />
+          <EntitySet Name="JobPostings" EntityType="Self.JobPosting" />
+          <EntitySet Name="Meetings" EntityType="Self.Meeting" />
+          <EntitySet Name="MeetingsStatus" EntityType="Self.MeetingsStatu" />
+          <EntitySet Name="Programs" EntityType="Self.Program" />
+          <EntitySet Name="SubComments" EntityType="Self.SubComment" />
+          <AssociationSet Name="FK_Activities_dbo_ActivityType_Id" Association="Self.FK_Activities_dbo_ActivityType_Id">
+            <End Role="ActivityType" EntitySet="ActivityTypes" />
+            <End Role="Activities" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activities_dbo_AspNetUsers_UserId" Association="Self.FK_Activities_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Activities" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_JobPosting_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_JobPosting_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="JobPosting" EntitySet="JobPostings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Discussion_AspNetUsers" Association="Self.FK_Discussion_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Discussion" EntitySet="Discussions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiscussionComments_AspNetUsers" Association="Self.FK_DiscussionComments_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="DiscussionComments" EntitySet="DiscussionComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingStatus_dbo_AspNetUsers_UserId" Association="Self.FK_MeetingStatus_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="MeetingsStatus" EntitySet="MeetingsStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubComments_AspNetUsers" Association="Self.FK_SubComments_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SubComments" EntitySet="SubComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiscussionComments_Discussion" Association="Self.FK_DiscussionComments_Discussion">
+            <End Role="Discussion" EntitySet="Discussions" />
+            <End Role="DiscussionComments" EntitySet="DiscussionComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK2_SubComments_DiscussionComments" Association="Self.FK2_SubComments_DiscussionComments">
+            <End Role="DiscussionComments" EntitySet="DiscussionComments" />
+            <End Role="SubComments" EntitySet="SubComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meetings_dbo_ProgramStatus_Id" Association="Self.FK_Meetings_dbo_ProgramStatus_Id">
+            <End Role="Programs" EntitySet="Programs" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingStatus_dbo_Meeting_Id" Association="Self.FK_MeetingStatus_dbo_Meeting_Id">
+            <End Role="Meetings" EntitySet="Meetings" />
+            <End Role="MeetingsStatus" EntitySet="MeetingsStatus" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="NewsFeeds" EntityType="ConestagoModel.NewsFeed" />
+          <AssociationSet Name="FK_dbo_NewsFeed_dbo_AspNetUsers_UserId" Association="ConestagoModel.FK_dbo_NewsFeed_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="NewsFeed" EntitySet="NewsFeeds" />
+          </AssociationSet>
+          <EntitySet Name="Tutors" EntityType="ConestagoModel.Tutor" />
+          <AssociationSet Name="FK_dbo_Tutor_dbo_AspNetUsers_UserId" Association="ConestagoModel.FK_dbo_Tutor_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Tutor" EntitySet="Tutors" />
+          </AssociationSet>
+          <EntitySet Name="UserSettings" EntityType="ConestagoModel.UserSetting" />
+          <AssociationSet Name="FK_UserSettings_ToAspNetUser" Association="ConestagoModel.FK_UserSettings_ToAspNetUser">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="UserSetting" EntitySet="UserSettings" />
+          </AssociationSet>
+          <EntitySet Name="ActivityInterests" EntityType="ConestagoModel.ActivityInterest" />
+          <EntitySet Name="MeetingInterests" EntityType="ConestagoModel.MeetingInterest" />
+          <AssociationSet Name="FK_ActivityInterest_ToActivity" Association="ConestagoModel.FK_ActivityInterest_ToActivity">
+            <End Role="Activity" EntitySet="Activities" />
+            <End Role="ActivityInterest" EntitySet="ActivityInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityInterest_ToAspNetUsers" Association="ConestagoModel.FK_ActivityInterest_ToAspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="ActivityInterest" EntitySet="ActivityInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingInterest_ToAspNetUsers" Association="ConestagoModel.FK_MeetingInterest_ToAspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="MeetingInterest" EntitySet="MeetingInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MeetingInterest_ToMeetings" Association="ConestagoModel.FK_MeetingInterest_ToMeetings">
+            <End Role="Meeting" EntitySet="Meetings" />
+            <End Role="MeetingInterest" EntitySet="MeetingInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tutor_ToPrograms" Association="ConestagoModel.FK_Tutor_ToPrograms">
+            <End Role="Program" EntitySet="Programs" />
+            <End Role="Tutor" EntitySet="Tutors" />
+          </AssociationSet>
+          <EntitySet Name="Books" EntityType="ConestagoModel.Book" />
+          <AssociationSet Name="FK_Books__AspNetUsers" Association="ConestagoModel.FK_Books__AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Book" EntitySet="Books" />
+          </AssociationSet>
+          <EntitySet Name="Accomodations" EntityType="ConestagoModel.Accomodation" />
+          <EntitySet Name="AccomodationImages" EntityType="ConestagoModel.AccomodationImage" />
+          <AssociationSet Name="FK_AccomodationImages_Accomodations" Association="ConestagoModel.FK_AccomodationImages_Accomodations">
+            <End Role="Accomodation" EntitySet="Accomodations" />
+            <End Role="AccomodationImage" EntitySet="AccomodationImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Accomodation_dbo_AspNetUsers_UserId" Association="ConestagoModel.FK_dbo_Accomodation_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Accomodation" EntitySet="Accomodations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccomodationImages_AspNetUsers" Association="ConestagoModel.FK_AccomodationImages_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AccomodationImage" EntitySet="AccomodationImages" />
+          </AssociationSet>
+          <EntitySet Name="UserUISettings" EntityType="ConestagoModel.UserUISetting" />
+          <AssociationSet Name="FK_UserUISettings_ToAspNetUsers" Association="ConestagoModel.FK_UserUISettings_ToAspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="UserUISetting" EntitySet="UserUISettings" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="NewsFeed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="newsDetail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="7" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="ConestagoModel.FK_dbo_NewsFeed_dbo_AspNetUsers_UserId" FromRole="NewsFeed" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_dbo_NewsFeed_dbo_AspNetUsers_UserId">
+          <End Type="ConestagoModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ConestagoModel.NewsFeed" Role="NewsFeed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NewsFeed">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tutor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tutor_Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Program" Type="Int32" />
+          <Property Name="Course" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Availability" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="7" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="ConestagoModel.FK_dbo_Tutor_dbo_AspNetUsers_UserId" FromRole="Tutor" ToRole="AspNetUser" />
+          <NavigationProperty Name="Program1" Relationship="ConestagoModel.FK_Tutor_ToPrograms" FromRole="Tutor" ToRole="Program" />
+        </EntityType>
+        <Association Name="FK_dbo_Tutor_dbo_AspNetUsers_UserId">
+          <End Type="ConestagoModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ConestagoModel.Tutor" Role="Tutor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tutor">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="IsEmail" Type="Boolean" Nullable="false" />
+          <Property Name="IsSms" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="ConestagoModel.FK_UserSettings_ToAspNetUser" FromRole="UserSetting" ToRole="AspNetUser" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_UserSettings_ToAspNetUser">
+          <End Type="ConestagoModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="ConestagoModel.UserSetting" Role="UserSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserSetting">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ActivityInterest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ActivityId" Type="Int32" />
+          <Property Name="AddedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Activity" Relationship="ConestagoModel.FK_ActivityInterest_ToActivity" FromRole="ActivityInterest" ToRole="Activity" />
+          <NavigationProperty Name="AspNetUser" Relationship="ConestagoModel.FK_ActivityInterest_ToAspNetUsers" FromRole="ActivityInterest" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="MeetingInterest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="MeetingId" Type="Int32" />
+          <Property Name="AddedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="ConestagoModel.FK_MeetingInterest_ToAspNetUsers" FromRole="MeetingInterest" ToRole="AspNetUser" />
+          <NavigationProperty Name="Meeting" Relationship="ConestagoModel.FK_MeetingInterest_ToMeetings" FromRole="MeetingInterest" ToRole="Meeting" />
+        </EntityType>
+        <Association Name="FK_ActivityInterest_ToActivity">
+          <End Type="ConestagoModel.Activity" Role="Activity" Multiplicity="0..1" />
+          <End Type="ConestagoModel.ActivityInterest" Role="ActivityInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityInterest">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityInterest_ToAspNetUsers">
+          <End Type="ConestagoModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="ConestagoModel.ActivityInterest" Role="ActivityInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityInterest">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingInterest_ToAspNetUsers">
+          <End Type="ConestagoModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="ConestagoModel.MeetingInterest" Role="MeetingInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingInterest">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MeetingInterest_ToMeetings">
+          <End Type="ConestagoModel.Meeting" Role="Meeting" Multiplicity="0..1" />
+          <End Type="ConestagoModel.MeetingInterest" Role="MeetingInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MeetingInterest">
+              <PropertyRef Name="MeetingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tutor_ToPrograms">
+          <End Type="ConestagoModel.Program" Role="Program" Multiplicity="0..1" />
+          <End Type="ConestagoModel.Tutor" Role="Tutor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tutor">
+              <PropertyRef Name="Program" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookTitle" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BookPath" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="AddedOn" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="7" />
+          <Property Name="BookDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BookPrice" Type="Double" />
+          <NavigationProperty Name="AspNetUser" Relationship="ConestagoModel.FK_Books__AspNetUsers" FromRole="Book" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_Books__AspNetUsers">
+          <End Type="ConestagoModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ConestagoModel.Book" Role="Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Accomodation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Number_of_Rooms" Type="Int32" />
+          <Property Name="Rent" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Facilities" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="PetFriendly" Type="Boolean" />
+          <Property Name="Parking" Type="Boolean" />
+          <Property Name="Floor" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Furnished" Type="Boolean" />
+          <Property Name="Posted_Date" Type="DateTime" Precision="7" />
+          <Property Name="Last_Updated" Type="DateTime" Precision="7" />
+          <Property Name="Image_Id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccomodationImages" Relationship="ConestagoModel.FK_AccomodationImages_Accomodations" FromRole="Accomodation" ToRole="AccomodationImage" />
+          <NavigationProperty Name="AspNetUser" Relationship="ConestagoModel.FK_dbo_Accomodation_dbo_AspNetUsers_UserId" FromRole="Accomodation" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AccomodationImage">
+          <Key>
+            <PropertyRef Name="ImageId" />
+          </Key>
+          <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ImageByte" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AccomodationId" Type="Int32" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="AddedOn" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Accomodation" Relationship="ConestagoModel.FK_AccomodationImages_Accomodations" FromRole="AccomodationImage" ToRole="Accomodation" />
+          <NavigationProperty Name="AspNetUser" Relationship="ConestagoModel.FK_AccomodationImages_AspNetUsers" FromRole="AccomodationImage" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_AccomodationImages_Accomodations">
+          <End Type="ConestagoModel.Accomodation" Role="Accomodation" Multiplicity="0..1" />
+          <End Type="ConestagoModel.AccomodationImage" Role="AccomodationImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accomodation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccomodationImage">
+              <PropertyRef Name="AccomodationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Accomodation_dbo_AspNetUsers_UserId">
+          <End Type="ConestagoModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ConestagoModel.Accomodation" Role="Accomodation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accomodation">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccomodationImages_AspNetUsers">
+          <End Type="ConestagoModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="ConestagoModel.AccomodationImage" Role="AccomodationImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccomodationImage">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserUISetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="ConestagoModel.FK_UserUISettings_ToAspNetUsers" FromRole="UserUISetting" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_UserUISettings_ToAspNetUsers">
+          <End Type="ConestagoModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="ConestagoModel.UserUISetting" Role="UserUISetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserUISetting">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ConestagoModelStoreContainer" CdmEntityContainer="ConestagoEntities">
+          <EntitySetMapping Name="Activities">
+            <EntityTypeMapping TypeName="ConestagoModel.Activity">
+              <MappingFragment StoreEntitySet="Activities">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ActivityTypeId" ColumnName="ActivityTypeId" />
+                <ScalarProperty Name="Added_On" ColumnName="Added_On" />
+                <ScalarProperty Name="Updated_On" ColumnName="Updated_On" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityTypes">
+            <EntityTypeMapping TypeName="ConestagoModel.ActivityType">
+              <MappingFragment StoreEntitySet="ActivityType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActivityType1" ColumnName="ActivityType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="ConestagoModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserActivations">
+            <EntityTypeMapping TypeName="ConestagoModel.AspNetUserActivation">
+              <MappingFragment StoreEntitySet="AspNetUserActivation">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="ConestagoModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="ConestagoModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="ConestagoModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ConfirmedEmail" ColumnName="ConfirmedEmail" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Program" ColumnName="Program" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="ProfileImage" ColumnName="ProfileImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discussions">
+            <EntityTypeMapping TypeName="ConestagoModel.Discussion">
+              <MappingFragment StoreEntitySet="Discussion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Topic" ColumnName="Topic" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Posted_Date" ColumnName="Posted_Date" />
+                <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiscussionComments">
+            <EntityTypeMapping TypeName="ConestagoModel.DiscussionComment">
+              <MappingFragment StoreEntitySet="DiscussionComments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CommentMessage" ColumnName="CommentMessage" />
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+                <ScalarProperty Name="DiscussionId" ColumnName="DiscussionId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobPostings">
+            <EntityTypeMapping TypeName="ConestagoModel.JobPosting">
+              <MappingFragment StoreEntitySet="JobPosting">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="JobPostingNumber" ColumnName="JobPostingNumber" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+                <ScalarProperty Name="JobType" ColumnName="JobType" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="JobSubTitle" ColumnName="JobSubTitle" />
+                <ScalarProperty Name="Posted_Date" ColumnName="Posted_Date" />
+                <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meetings">
+            <EntityTypeMapping TypeName="ConestagoModel.Meeting">
+              <MappingFragment StoreEntitySet="Meetings">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MeetingTitle" ColumnName="MeetingTitle" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="MeetingDateTime" ColumnName="MeetingDateTime" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Program" ColumnName="Program" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeetingsStatus">
+            <EntityTypeMapping TypeName="ConestagoModel.MeetingsStatu">
+              <MappingFragment StoreEntitySet="MeetingsStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MeetingId" ColumnName="MeetingId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IsAccepted" ColumnName="IsAccepted" />
+                <ScalarProperty Name="AcceptedOn" ColumnName="AcceptedOn" />
+                <ScalarProperty Name="RejectedOn" ColumnName="RejectedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Programs">
+            <EntityTypeMapping TypeName="ConestagoModel.Program">
+              <MappingFragment StoreEntitySet="Programs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubComments">
+            <EntityTypeMapping TypeName="ConestagoModel.SubComment">
+              <MappingFragment StoreEntitySet="SubComments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CommentMessage" ColumnName="CommentMessage" />
+                <ScalarProperty Name="CommentedDate" ColumnName="CommentedDate" />
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="ConestagoModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="NewsFeeds">
+            <EntityTypeMapping TypeName="ConestagoModel.NewsFeed">
+              <MappingFragment StoreEntitySet="NewsFeed">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="newsDetail" ColumnName="newsDetail" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tutors">
+            <EntityTypeMapping TypeName="ConestagoModel.Tutor">
+              <MappingFragment StoreEntitySet="Tutor">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Availability" ColumnName="Availability" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Program" ColumnName="Program" />
+                <ScalarProperty Name="Tutor_Name" ColumnName="Tutor Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSettings">
+            <EntityTypeMapping TypeName="ConestagoModel.UserSetting">
+              <MappingFragment StoreEntitySet="UserSettings">
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="IsSms" ColumnName="IsSms" />
+                <ScalarProperty Name="IsEmail" ColumnName="IsEmail" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityInterests">
+            <EntityTypeMapping TypeName="ConestagoModel.ActivityInterest">
+              <MappingFragment StoreEntitySet="ActivityInterest">
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeetingInterests">
+            <EntityTypeMapping TypeName="ConestagoModel.MeetingInterest">
+              <MappingFragment StoreEntitySet="MeetingInterest">
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="MeetingId" ColumnName="MeetingId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="ConestagoModel.Book">
+              <MappingFragment StoreEntitySet="Books">
+                <ScalarProperty Name="BookPrice" ColumnName="BookPrice" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="BookDescription" ColumnName="BookDescription" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BookPath" ColumnName="BookPath" />
+                <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accomodations">
+            <EntityTypeMapping TypeName="ConestagoModel.Accomodation">
+              <MappingFragment StoreEntitySet="Accomodation">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Image_Id" ColumnName="Image_Id" />
+                <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+                <ScalarProperty Name="Posted_Date" ColumnName="Posted_Date" />
+                <ScalarProperty Name="Furnished" ColumnName="Furnished" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="Parking" ColumnName="Parking" />
+                <ScalarProperty Name="PetFriendly" ColumnName="PetFriendly" />
+                <ScalarProperty Name="Facilities" ColumnName="Facilities" />
+                <ScalarProperty Name="Rent" ColumnName="Rent" />
+                <ScalarProperty Name="Number_of_Rooms" ColumnName="Number_of_Rooms" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccomodationImages">
+            <EntityTypeMapping TypeName="ConestagoModel.AccomodationImage">
+              <MappingFragment StoreEntitySet="AccomodationImages">
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AccomodationId" ColumnName="AccomodationId" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ImageByte" ColumnName="ImageByte" />
+                <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserUISettings">
+            <EntityTypeMapping TypeName="ConestagoModel.UserUISetting">
+              <MappingFragment StoreEntitySet="UserUISettings">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

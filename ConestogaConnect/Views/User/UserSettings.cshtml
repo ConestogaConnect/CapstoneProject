@@ -1,0 +1,163 @@
+﻿@model List<ConestogaConnect.Models.UserSetting>
+
+@{
+    ViewBag.Title = "UserSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="body-content">
+    <h2>Notification Settings</h2>
+    <hr />
+
+
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <table class="table" id="notification" style="width:400px;">
+            <thead style="font-weight:bolder;">
+                <tr>
+                    <td style="display:none;"></td>
+                    <td style="display:none;"></td>
+                    <td>Action   </td>
+                    <td>Email</td>
+                    <td>SMS</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var row in Model)
+                {
+                    <tr>
+                        <td style="display:none"><input type="hidden" value="@row.Id" /> </td>
+                        <td style="display:none"><input type="hidden" value="@row.UserId" /> </td>
+                        <td>@row.Action</td>
+                        <td>
+                            @if (row.IsEmail)
+                            {
+                                <input type="checkbox" checked />
+                            }
+                            else
+                            {
+                                <input type="checkbox" />
+                            }
+                        </td>
+                        <td>
+                            @if (row.IsSms)
+                            {
+                                <input type="checkbox" checked />
+                            }
+                            else
+                            {
+                                <input type="checkbox" />
+                            }
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" onclick="saveSettings();" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+        <h2>UI Settings</h2>
+        <hr />
+        <div class="form-horizontal">
+
+            <div class="form-group">
+                @Html.Label("BackGround Color", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input class="jscolor form-control" id="bgcolor" value="@ViewBag.bgcolor" />
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Header BackGround Color", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input class="jscolor form-control" value="@ViewBag.hbgcolor" id="hbgcolor" />
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Title Header BackGround Color", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input class="jscolor form-control" value="@ViewBag.tbbgcolor" id="tbbgcolor" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.ActionLink("Reset", "ResetUserUISettings", "User", null, new { @class = "btn btn-default" })
+                    <input type="button" onclick="saveUISettings();" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+
+        </div>
+
+        <h2>Responsive Voice Settings</h2>
+        <hr />
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.Label("Change Settings", htmlAttributes: new { @class = "control -label col-md-2" })
+                <div class="col-md-10">
+                    @Html.ActionLink(ViewBag.ResponsiveVoice == "On" ? "Disable" : "Enable", "ChangeVoiceSettings", "User", null, new { @class = "btn btn-default" })
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script>
+
+        function saveSettings() {
+            var settings = [];
+            $("#notification > tbody > tr").each(function (index, item) {
+                var columns = $(item).children("td");
+                settings.push({
+                    Id: $(columns[0]).find('input').val(),
+                    UserId: $(columns[1]).find('input').val(),
+                    Action: columns[2].innerHTML,
+                    IsEmail: $(columns[3]).find('input').is(":checked"),
+                    IsSms: $(columns[4]).find('input').is(":checked")
+                });
+
+
+
+            });
+
+            console.log(settings);
+            $.ajax({
+                type: "POST",
+                url: "/User/UserSettings",
+                data: { settings: settings },
+                success: function (response) {
+                    if (response != '') {
+                        alert(response)
+                    } else {
+                        location.reload();
+                    }
+                },
+                dataType: "json"
+            });
+        }
+        function saveUISettings() {
+
+            $.ajax({
+                type: "POST",
+                url: "/User/SaveUserUISettings",
+                dataType: "json",
+                data: {
+                    bgcolor: $("#bgcolor").val(), hbgcolor: $("#hbgcolor").val(), tbbgcolor: $("#tbbgcolor").val()
+                },
+                success: function (response) {
+                    debugger;
+                    if (response != '') {
+                        window.location.reload();
+                    } else {
+                        window.location.reload();
+                    }
+                }
+
+            });
+        }
+    </script>
+    <script src="~/Content/colorpicker/jscolor.js"></script>

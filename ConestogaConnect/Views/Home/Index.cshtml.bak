@@ -1,0 +1,215 @@
+﻿<section class="slider">
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="slideOuter">
+                    <img class="first-slide" src="~/Content/Images/slider-1.jpg" alt="Accommodations">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Find Accommodations.</h1>
+                            <p>Find your Accommodation easily and share with your friends.</p>
+                            <p><a class="btn btn-lg btn-primary blueBtn" href="Accomodations" role="button">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="slideOuter">
+                    <img class="second-slide" src="~/Content/Images/slider-2.jpg" alt="Meetings">
+                    <div class="container">
+
+                        <div class="carousel-caption">
+                            <h1>Arrange Meetings.</h1>
+                            <p>Fix your important meetings. You can accept the meetings here.</p>
+                            <p><a class="btn btn-lg btn-primary blueBtn" href="Meetings" role="button">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+
+        </a>
+    </div><!-- /.carousel -->
+</section>
+
+<section class="services">
+    <div class="container">
+        <div class="sectionHeader">
+            <h2>Services</h2>
+            <p class="subheader">The services will help you reach the solution very easily. </p>
+        </div>
+
+        <div class="serviceVlocks">
+            <div class="row">
+            
+                <div class="col-sm-3">
+                    <a href="Accomodations">
+                        <div class="seviceBox">
+                            <div class="serviceImage">
+                                <img src="~/Content/Images/accomodation2.jpg" alt="Accommodations">
+                            </div>
+                            <div class="servicesDetail">
+                                <h4>
+                                    Accommodation
+                                </h4>
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+
+                <div class="col-sm-3">
+                    <a href="Books">
+                        <div class="seviceBox">
+                            <div class="serviceImage">
+                                <img src="~/Content/Images/books_nice.jpg" alt="Books">
+                            </div>
+                            <div class="servicesDetail">
+                                <h4>Find Books</h4>
+                            </div>
+
+                        </div>
+                        </a>
+                </div>
+
+                <div class="col-sm-3">
+                    <a href="tutors/Displaytutor">
+                        <div class="seviceBox">
+                            <div class="serviceImage">
+                                <img src="~/Content/Images/matching.jpg" alt="Tutor">
+                            </div>
+                            <div class="servicesDetail">
+                                <h4>
+                                    Find Tutor
+                                </h4>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-sm-3">
+                    <a href="AddDiscussions">
+                        <div class="seviceBox">
+                            <div class="serviceImage">
+                                <img src="~/Content/Images/discussion2.jpg" alt="Group Discussions">
+                            </div>
+                            <div class="servicesDetail">
+                                <h4>
+                                    Discussions
+                                </h4>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row"></div>
+            <div class="row"></div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="JobPostings">
+                        <div class="seviceBox">
+                            <div class="serviceImage">
+                                <img src="~/Content/Images/job.jpg" alt="Accommodations">
+                            </div>
+                            <div class="servicesDetail">
+                                <h4>FIND JOBS
+                    </h4>
+                </div>
+
+            </div>
+                    </a>
+        </div>
+
+                <div class="col-sm-3">
+                    <a href="User/Findfriends">
+                        <div class="seviceBox">
+                            <div class="serviceImage">
+                                <img src="~/Content/Images/friends.jpg" alt="Books">
+                            </div>
+                            <div class="servicesDetail">
+                                <h4>Find Friends</h4>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-sm-3">
+                    <a href="Activities">
+                        <div class="seviceBox">
+                            <div class="serviceImage">
+                                <img src="~/Content/Images/activities.jpg" alt="Tutor">
+                            </div>
+                            <div class="servicesDetail">
+                                <h4>
+                                    ACTIVITIES
+                                </h4>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-sm-3">
+
+                    <a href="Meetings">
+                        <div class="seviceBox">
+                            <div class="serviceImage">
+                                <img src="~/Content/Images/Meetings.jpg" alt="Group Discussions">
+                            </div>
+                            <div class="servicesDetail">
+                                <h4>
+                                    MEETINGS
+                                </h4>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="meetings">
+    <div class="container">
+        <div class="col-sm-7">
+            <div class="meetingImg">
+                <img src="~/Content/Images/meeting1.jpg" alt="Meetings">
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="meetContent">
+                <h4><a href="Meetings">Arrange Meetings</a></h4>
+                <p>
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br><br>
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <br><br>
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

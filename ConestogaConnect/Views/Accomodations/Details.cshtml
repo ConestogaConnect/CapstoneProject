@@ -1,0 +1,142 @@
+﻿@model ConestogaConnect.Models.AccomodationViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Accomodation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Number_of_Rooms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number_of_Rooms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Facilities)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Facilities)
+        </dd>
+
+    
+
+      
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Floor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Floor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd id="location">
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Posted_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Posted_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Last_Updated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_Updated)
+        </dd>
+
+
+
+    </dl>
+</div>
+<div class="detailImages">
+    @foreach (var img in Model.Images)
+    {
+
+        <img src="@img.ImagePath" title="@img.ImageTitle" class="detailImg" />
+
+    }
+</div>
+<!----<div id="map" style="height:500px;"></div>---->
+
+<p>
+
+    @if (this.User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Back to List", "DisplayAccomodations")
+    }
+    @if (this.User.IsInRole("Student"))
+    {
+        @Html.ActionLink("Back to List", "Index")
+    }
+</p>
+<script>
+    function initMap() {
+        var address = document.getElementById('location').innerText;
+        if (address.trim() != '') {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: { lat: -34.397, lng: 150.644 }
+            });
+            var geocoder = new google.maps.Geocoder();
+            geocodeAddress(geocoder, map);
+        }
+    }   
+    
+    function geocodeAddress(geocoder, resultsMap) {
+        debugger;
+        var address = document.getElementById('location').innerText;
+        if (address)
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            debugger;
+            if (status === 'OK') {
+                
+                resultsMap.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcDJAr8NTFHinHMKum293Wim25wywfMW8&callback=initMap">
+</script>

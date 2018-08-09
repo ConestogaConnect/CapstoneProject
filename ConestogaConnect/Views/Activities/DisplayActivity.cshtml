@@ -1,0 +1,113 @@
+﻿@model IEnumerable<ConestogaConnect.Models.Activity>
+
+@{
+    ViewBag.Title = "DisplayActivity";
+}
+
+<h2 class="adminpagehead">DisplayActivity</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.ActivityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActivityType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Added_On)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Updated_On)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.ActivityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActivityType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Added_On)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Updated_On)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+<link href="~/Content/datepicker/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/datepicker/jquery-ui.structure.css" rel="stylesheet" />
+<link href="~/Content/datepicker/jquery-ui.theme.css" rel="stylesheet" />
+<script src="~/Content/datepicker/jquery-ui.js"></script>
+
+<script type="text/javascript">
+    var dateFormat = "dd/mm/yy";
+    $(document).ready(function () {
+        var pdfrom = $("#afrom").datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            dateFormat: dateFormat,
+            numberOfMonths: 1
+        }).on("change", function () {
+            pdto.datepicker("option", "minDate", getDate(this));
+        }),
+            pdto = $("#ato").datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                dateFormat: dateFormat,
+                numberOfMonths: 1
+            }).on("change", function () {
+                pdfrom.datepicker("option", "maxDate", getDate(this));
+            });
+
+        var ufrom = $("#ufrom").datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            dateFormat: dateFormat,
+            numberOfMonths: 1
+        }).on("change", function () {
+            uto.datepicker("option", "minDate", getDate(this));
+        }),
+            uto = $("#uto").datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                dateFormat: dateFormat,
+                numberOfMonths: 1
+            }).on("change", function () {
+                ufrom.datepicker("option", "maxDate", getDate(this));
+            });
+    });
+
+    function getDate(element) {
+        var date;
+        try {
+            date = $.datepicker.parseDate(dateFormat, element.value);
+        } catch (error) {
+            date = null;
+        }
+        return date;
+    }
+</script>
